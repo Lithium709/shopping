@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CookieService } from 'ng2-cookies';
+import { CookiesService } from '@ngx-utils/cookies';
 import * as _ from "lodash";
 
 @Injectable()
@@ -15,7 +15,7 @@ export class ShopCookieService {
     cookies: Object;
     keys: Array<string>;
     
-    constructor(private  Cookie : CookieService) {
+    constructor(private  Cookie : CookiesService) {
         this.updateCookie();
         this.initCookie();  
     }
@@ -28,14 +28,14 @@ export class ShopCookieService {
 
     // Add Cookie
     addCookie(cName: string, cValue: string) {
-        this.Cookie.set(cName, cValue);
+        this.Cookie.put(cName, cValue);
         this.updateCookie();
         this.initCookie();          
     }
 
     // Remove Cookie
     removeCookie(name: string) {
-        this.Cookie.delete(name);
+        this.Cookie.remove(name);
         this.updateCookie();
         this.initCookie(); 
     }
@@ -53,44 +53,6 @@ export class ShopCookieService {
                 _.map(productsCart, (x)=>{
                     return this.productsOrder.push(x);
                 });
-            }
-            
-            // Wish List
-            if(this.cookies['wishlist'] != undefined){
-                _.uniq(this.cookies['wishlist']);
-                let wishList = JSON.parse(this.cookies['wishlist']);
-                _.map(wishList, (x)=>{
-                    this.arrWishList.push(x);
-                });
-            }
-
-            // Compare
-            if(this.cookies['compare'] != undefined){
-                _.uniq(this.cookies['compare']);
-                let compareList = JSON.parse(this.cookies['compare']);
-                _.map(compareList, (x)=>{
-                    this.arrCompare.push(x);
-                });
-            }
-
-            // Promo
-            if(this.cookies['promo'] != undefined){
-                this.promo = this.cookies['promo'];
-            }
-
-            // Subtotal
-            if(this.cookies['subtotal'] != undefined){
-                this.subtotal = Number(this.cookies['subtotal']);
-            }   
-
-            // Promo Value
-            if(this.cookies['promoValue'] != undefined){
-                this.promoValue = Number(this.cookies['promoValue']);
-            }
-
-            // Payed
-            if(this.cookies['payed'] != undefined){
-                this.payed = this.cookies['payed'];
             }
         }
     }

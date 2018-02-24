@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserCookiesModule } from '@ngx-utils/cookies/browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
@@ -33,7 +34,7 @@ import {StateStorageService} from "./auth/state-storage.service";
 import {Principal} from "./auth/principal.service";
 import {AccountService} from "./auth/account.service";
 import {LogisticService} from "./lib/service/logistic.service";
-
+import { REQUEST } from '@nguniversal/express-engine/tokens';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,6 +47,7 @@ import {LogisticService} from "./lib/service/logistic.service";
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'my-app'}),
+      BrowserCookiesModule.forRoot(),
       MatDialogModule,
       MatProgressSpinnerModule,
       MatIconModule,
@@ -54,6 +56,7 @@ import {LogisticService} from "./lib/service/logistic.service";
       MatExpansionModule,
       HttpClientModule,
       HomeModule,
+
       MenuComponentsModule,
       RouterModule.forRoot([
       { path: '', component: Home1Component, pathMatch: 'full'},
@@ -72,6 +75,7 @@ import {LogisticService} from "./lib/service/logistic.service";
         CSRFService,
         SocialService,
         Register,
+       // REQUEST,
         CookieService,
         { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
     ],
