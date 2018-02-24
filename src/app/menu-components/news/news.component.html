@@ -1,0 +1,33 @@
+ <div class="megacolimage mobVersion">
+   <a routerLink="/blog-posts" (click)="onClick($event)" class="linksoblog"> <h3 class="title">Останні новини</h3></a>
+    <div class="fluid-width-video-wrapper">
+      <ul  class="megacollink">
+        <!--<li *ngFor="let blogPost of blogPosts"><a (click)="onClick($event)" [routerLink]="'/blog/' + blogPost.id"> {{blogPost.title}}</a><p class="blockdisc">{{blogPost.shortDescription}}</p></li>-->
+        <li *ngFor="let blogPost of blogPosts1" >
+          <a (click)="onClick($event)" href="/blog/{{ blogPost.title.split(' ').join('-') }}">{{blogPost.title}}</a>
+          <div class="shortDescMenu">
+            <p class="blockdisc">{{blogPost.shortDescription}}</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="megacolimage mobVersion">
+    <h3 class="title">Цікаво про бренд</h3>
+    <div class="fluid-width-video-wrapper">
+      <ul  class="megacollink">
+        <li *ngFor="let blogPost of blogPosts2">
+          <a (click)="onClick($event)" href="/blog/{{blogPost.title.split(' ').join('-')}}">{{blogPost.title}}</a>
+          <div class="shortDescMenu">
+          <p class="blockdisc">{{blogPost.shortDescription}}</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="megacolimage mobVersion">
+    <h3 class="title">Програма лояльності</h3>
+    <div class="fluid-width-video-wrapper" *ngFor="let htmlBlock of htmlBlocks"><a (click)="onClick($event)" class="linkHtmlBan" href="#"><img src="{{htmlBlock.image}}" alt=""/></a>
+      {{htmlBlock.title}}
+    </div>
+  </div>

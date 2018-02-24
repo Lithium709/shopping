@@ -1,0 +1,35 @@
+
+
+.title{
+  color: #183051;
+}
+
+
+.menuCityLink{
+  height: 40px;
+  color: black;
+  display: inline-block;
+  overflow: hidden;
+  position: absolute;
+  background-color: inherit;
+}
+
+
+.topalspan{
+  margin-top: -12px;
+}
+
+a.menuCityLink:hover{
+  background-color: inherit;
+  text-decoration: none;
+}
+
+.cityList{
+  width: 100%;
+}
+
+.cityBlocks{
+  padding-left: 0px;
+  border: 0px solid whitesmoke;
+  height: 40px;
+}

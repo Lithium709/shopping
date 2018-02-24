@@ -1,0 +1,341 @@
+
+.aCateg{
+  display: none;
+}
+
+
+
+.navbar-default{
+  z-index: 9;
+  background-color: white;
+  border-color: #d9d9d9;
+}
+
+.navbar-toggle{
+  height: 35px;
+}
+
+.navbar{
+  border-radius: 0px;
+}
+
+.navbar-toggle{
+  margin-right: 7px;
+}
+
+.navbar-toggle{
+  border: 1px solid #183051;
+}
+
+.pFiltBtn{
+  margin-top: -20px;
+  color: #183051;
+}
+.aFiltBtn{
+  color: #183051;
+  font-size: 18px;
+}
+
+.testfiltertop{
+  display: flex;
+  background-color: white;
+  /* border-bottom: 1px solid gainsboro; */
+  height: 51px;
+  border-bottom: 1px solid #efefef;
+  border-top: 1px solid #efefef;
+  width: 100%;
+  z-index:0;
+}
+
+
+i.desc{
+  display: inline-flex;
+  background-image: url("/assets/images/brand/isAsc.png");
+  opacity: 0.2;
+  width: 30px;
+  height: 23px;
+}
+
+i.desc.isDesc{
+  opacity: 1;
+ /* background-image: url("/assets/images/brand/isDesc.png"); */
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+i.desc.isAsc{
+  opacity: 1;
+ /* background-image: url("/assets/images/brand/isAsc.png"); */
+}
+
+
+
+
+.mobFiltBtn{
+  color: black;
+  height: 32px;
+  cursor: pointer;
+}
+
+.mobFiltBtn p{
+  margin-top: -21px;
+}
+
+.menu-filter{
+  height: 50px;
+  padding-left: 30px;
+}
+
+.headfilter{
+  width: 100%;
+  margin-top: 0px;
+  margin-left: 0px;
+  display: -webkit-box;
+  background-color: white;
+  height: 50px;
+  border-bottom: 1px solid #efefef;
+  position: static;
+  z-index: 3;
+}
+
+.dropdown-large {
+  position: static;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+
+
+.dropdown-menu-large {
+  margin-left: 0px;
+  margin-right: 1px;
+  width: 100%;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+.dropdown-menu-large > li > ul {
+  padding: 0;
+  margin: 0;
+}
+.dropdown-menu-large > li > ul > li {
+  list-style: none;
+}
+.dropdown-menu-large > li > ul > li > a {
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: normal;
+  line-height: 1.428571429;
+  color: #333333;
+  white-space: normal;
+}
+.dropdown-menu-large > li ul > li > a:hover,
+.dropdown-menu-large > li ul > li > a:focus {
+  text-decoration: none;
+  color: #262626;
+  background-color: #f5f5f5;
+}
+.dropdown-menu-large .disabled > a,
+.dropdown-menu-large .disabled > a:hover,
+.dropdown-menu-large .disabled > a:focus {
+  color: #999999;
+}
+
+.colorBlocks{
+  overflow: hidden;
+  display: -webkit-box;
+}
+
+.colorName{
+  padding-left: 2px;
+}
+
+
+.dropdown-menu-large .disabled > a:hover,
+.dropdown-menu-large .disabled > a:focus {
+  text-decoration: none;
+  background-color: transparent;
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  cursor: not-allowed;
+}
+.dropdown-menu-large .dropdown-header {
+  color: #428bca;
+  font-size: 18px;
+}
+@media (max-width: 768px) {
+
+  .dropdown-menu-large {
+    padding-right: 1px;
+    padding-left: 1px;
+    margin-left: 0 ;
+    margin-right: 0 ;
+  }
+  .dropdown-menu-large > li {
+    margin-bottom: 3px;
+  }
+  .dropdown-menu-large > li:last-child {
+    margin-bottom: 0;
+  }
+  .dropdown-menu-large .dropdown-header {
+    padding: 3px 15px !important;
+  }
+}
+
+.row-size{
+  color: black;
+  text-align: right;
+}
+
+.btnColors{
+  padding: 3px;
+}
+
+.filtercontainer-right{
+  float:right;
+}
+
+
+.filters-stright {
+    float: inherit;
+}
+
+.sortPan{
+  display: inline-flex;
+}
+.sortPan p{
+  color: black;
+  margin-top: -2px;
+  padding-left: 5px;
+}
+.sortPan a{
+  margin: 0px;
+  padding-left: 1px;
+  padding-right: 1px;
+  padding-top: 13px;
+}
+
+
+.чорний .mat-mini-fab{
+  background-color: black;
+}
+.сірий .mat-mini-fab{
+  background-color: #999;
+}
+.синий .mat-mini-fab{
+  background-color: #0D47A1;
+}
+.белый .mat-mini-fab{
+  background-color: white;
+  border:1px solid black;
+}
+.серый .mat-mini-fab{
+  background-color: #7d7d7d;
+}
+.голубой .mat-mini-fab{
+  background-color: #2e6da4;
+}
+.коричневий .mat-mini-fab{
+  background-color: saddlebrown;
+}
+.бордовый .mat-mini-fab{
+  background-color: brown;
+}
+.зеленый .mat-mini-fab{
+  background-color: green;
+}
+.желтый .mat-mini-fab{
+  background-color: yellow;
+}
+.красный .mat-mini-fab{
+  background-color: red;
+}
+
+.mat-mini-fab.mat-accent.active{
+  border:3px solid #183051;
+}
+
+@media only screen and (max-width: 780px) {
+  .testfiltertop{
+    margin-top: -10px;
+  }
+
+  .aCateg{
+    display: block;
+    margin-top: 3px;
+  }
+
+  .menu-filter{
+    padding-left: 0px;
+  }
+
+  .dropdown-large{
+    position: inherit;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .nav>li{
+    width: 100%;
+    margin: 0px;
+  }
+
+  .colorBlocks{
+    overflow: hidden;
+    display: inline-flex;
+  }
+
+  .colorName{
+    padding-left: 2px;
+  }
+
+  .caret{
+    float: right;
+    margin-top: 7px;
+  }
+
+
+
+  .filterowico {
+    display: inline-block;
+    width: 22px;
+    height: 35px;
+    background-color: black;
+    margin-left: 2px;
+    vertical-align: middle;
+    border-top: 4px dashed;
+    border-top: 4px solid\9;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+  }
+
+  .sortPan{
+    display: none;
+  }
+
+  .filters-stright{
+    margin-top: -1px;
+  }
+
+  .navbar-default{
+    border-top: 0px;
+    border-right: 0px;
+    border-left: 0px;
+    border-color: whitesmoke;
+  }
+
+  .mDropFilter{
+    border-bottom: 1px solid lightgray;
+    background-color: ghostwhite;
+    margin-top: 1px;
+  }
+  .navbar-default .navbar-collapse, .navbar-default .navbar-form{
+    border: 0px;
+  }
+
+
+}
+

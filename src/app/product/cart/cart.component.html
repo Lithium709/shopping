@@ -1,0 +1,65 @@
+<!-- NEW CART START-->
+
+<div class="container-fluid">
+    <a class="closeCart" (click)="onClickClose()"><img src="../../assets/images/brand/close_grey.png" /></a>
+    <div class="row newCart">
+
+        <div *ngIf="productsOrder.length == 0" class="blockProdCartEmpt">
+            <div class="col s12 m12 l12">
+              <!--  <h3><img src="../../assets/images/brand/emptycart.png"/></h3> -->
+                <h5 class="emptcart">КОШИК ПОРОЖНІЙ</h5>
+            </div>
+        </div>
+
+        <div *ngFor="let orderLine of productsOrder" class="blockProdCart">
+            <div class="col s12 m5 l5 cartImgBlok">
+                <a [routerLink]="['/product/' + orderLine.slug]">
+                <img class="cartimg" [src]="orderLine.image" alt=""/>
+                </a>
+            </div>
+            <div class="col s12 m7 l7">
+                <ul class="cartUl">
+                    <li>
+                       <!-- <h4 class="mobProdname" [routerLink]="['/product/' + orderLine.slug]" >
+                            {{orderLine.productName }}
+                        </h4>-->
+                        <h5>{{orderLine.productName }}</h5>
+                    </li>
+                    <li class="cartFieldNew">
+                        <p>РОЗМІР: {{orderLine.item.size + ',' + orderLine.item.growth}}</p>
+                    </li>
+                    <li class="cartFieldQuon"> КІЛЬКІСТЬ: <input
+                            type="number"
+                            class="input-counter"
+                            [(ngModel)]="orderLine.quantity"
+                            [value]="orderLine.quantity"
+                            (change)="onChangeQuantity(orderLine)"/>
+                    </li>
+                    <li class="cartFieldPrice">
+                        {{orderLine.quantity * orderLine.price | number}}&nbsp;ГРН
+                    </li>
+                    <li class="cartFieldDelete">
+                        <a (click)="deleteProduct(orderLine.item.id)"><i class="fa fa-times-circle" aria-hidden="true"></i> видалити</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row cartCheckOut">
+       <div class="col s12 m12 l12">
+            <table class="count">
+                <tr>
+                    <td>ЦІНА ЗАМОВЛЕННЯ</td>
+                    <td class="right-align"><strong>{{total  | number}}</strong>&nbsp;ГРН</td>
+                </tr>
+            </table>
+       </div>
+          <div class="col s12 m12 l12">
+            <button [disabled]="productsOrder.length == 0" (click)="onSubmit(); onClickClose();" mat-button class="btn btn-primary btn-block" data-dismiss="modal">ОФОРМИТИ ЗАМОВЛЕННЯ</button>
+          </div>
+    </div>
+</div>
+
+<!-- NEW CART FINISH -->

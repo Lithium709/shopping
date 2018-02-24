@@ -1,0 +1,151 @@
+/*
+Import
+=========================== */
+@import '../../../assets/sass/css3-mixins';
+@import '../../../assets/sass/variable';
+
+/*
+Layout
+=========================== */
+ul.list-product li{
+    padding-left: 75px;
+    padding-right: 0;
+
+    .wrap-img{
+        width: 14%;
+        left: 0;
+    }
+}
+
+.btn-block{
+    background-color: black;
+}
+
+.col{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+table.count{
+    margin-top: -1px;
+}
+
+.link{
+    display: inline-block;
+}
+
+.matDelRadioBtn{
+    margin-top: 10px;
+    display: block;
+}
+
+.mat-radio-group{
+    display: block;
+    width: 60%;
+}
+
+
+/* Delivery form start */
+
+
+.example-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.example-container > * {
+    width: 100%;
+}
+
+.example-container form {
+    margin-bottom: 20px;
+}
+
+.example-container form > * {
+    margin: 5px 0;
+}
+
+.example-container .mat-radio-button {
+    margin: 0 5px;
+}
+
+/* Delivery form finish */
+
+
+
+
+
+
+.container-page{
+    width: 100%;
+    padding: 0 1px;
+    display: block;
+    margin: auto;
+}
+
+.box-page{
+    margin-top: -35px;
+    padding: 0px;
+}
+
+.shipingMenu{
+    margin-bottom: 5px;
+    padding: 10px;
+    background-color: whitesmoke;
+    color: black;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.dropshipingnenu{
+    padding-top: 20px;
+}
+.check{
+    margin-top: 30px;
+    margin-left: 3px;
+}
+
+.selectcheck{
+    margin-top: 0px;
+}
+
+.btn-shiping{
+    background-color: black;
+}
+
+.payvar{
+    margin-bottom: 20px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.fa-lg{
+    float: right;
+    padding-top: 4px;
+}
+
+/*
+Responsive
+=========================== */
+@media only screen and (max-width: 780px) {
+    .box-page{
+        margin-top: -15px;
+    }
+    .fa-lg{
+        display: none;
+    }
+}
+
+
+@media (max-width: 920px){
+    .btn{
+        width: 100%;
+        display: block;
+    }
+}
+
+@media (max-width: 568px){
+    form{
+        margin-bottom: 50px;
+    }
+}    

@@ -1,0 +1,56 @@
+<!-- Head Section -->
+<!--<div class="head-section bg">
+    <div class="container">
+        <h4>Product <span class="font-light">One</span></h4>
+        <p>Angushop Product Style One</p>
+    </div>
+</div>-->
+<!-- Start filter -->
+
+<!-- end filter -->
+
+
+<div class="div-middle">
+    <div class="container-fluid">
+        <div class="row">
+            <div *ngIf="menuCategory" class="categorybg">
+                <img class="brendcategory" src="{{ menuCategory.imageLink || '../../../assets/images/brand/cat-07-1440.jpg'}}">
+            </div>
+        </div>
+    </div>
+
+   <div ng2-sticky class="stikfilter">
+        <br/><br/><br/>
+        <div><app-topfilter></app-topfilter></div>
+    </div>
+
+    <div class="mobFilterPanel">
+        <app-topfilter></app-topfilter>
+    </div>
+
+    <div class="row wrap-product" myMatchHeight="layout">
+        <div class="col m12 l12 s12 layout main-product">
+            <!-- Start Product -->
+            <app-product
+                    [filter]="{
+                search: search,
+                category: category,
+                menuCategory: menuCategoryName,
+                color: color,
+                price: price,
+                size: sizes,
+                style: styles,
+                pattern: patterns,
+                collection: collections,
+                sort: sort
+            }"
+                    [column]="'l4 s6'"
+                    [setlimit]="SIZE"
+                    [paginate]="true"
+                    [currentPage]="currentPage"
+                    (pageChange)="onPageChange($event)">
+            </app-product>
+            <!-- End Product -->
+        </div>
+    </div>
+</div>

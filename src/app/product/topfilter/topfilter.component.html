@@ -1,0 +1,350 @@
+
+
+
+
+    <!--<div class="container">
+        <div class="row">
+  <div class="headfilter ">
+
+      <div class="col s1 m1 l1 btnFilter">
+          <button mat-icon-button>
+              <a (click)="resetFilter()" class="cleanFilter" title="ОЧИСТИТИ ФІЛЬТР">
+                  <i class="fa fa-filter"></i><span>&nbsp;x</span></a>
+          </button>
+      </div>
+
+    <div class="col s3 m3 l3 btnFilter">
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <span class="filtTitle">Категорії</span>
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu" class="dropDownFilter">
+      <ul class="filterLine">
+        <li *ngFor="let category of categories" [value]="category.description" class="liFilterCategory">
+          <a (click)="selectCategory(category)" class="aCategoryTitle">{{ category.description }}</a>
+        </li>
+      </ul>
+    </mat-menu>
+    </div>
+
+
+    <div class="col s3 m3 l3 btnFilter">
+      <button mat-icon-button [matMenuTriggerFor]="size" class="filterbtn">
+        <span class="filtTitle">Розмір</span>
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #size="matMenu" class="dropDownFilter">
+          <ul>
+          <li *ngFor="let size of sizeProduct" class="col s1 margin-bottom1 filterLine">
+            <mat-checkbox
+                    [checked]="size.check"
+                    (change)="size.check = !size.check"
+                    (click)="selectSize(size.size,size.check)"
+                    class="checkBloks"
+            >
+              {{size.size}}
+            </mat-checkbox>
+          </li>
+          </ul>
+      </mat-menu>
+    </div>
+
+
+    <div class="col s2 m2 l2 btnFilter">
+    <button mat-icon-button [matMenuTriggerFor]="color" class="filterbtn">
+      <span class="filtTitle">Колір</span>
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #color="matMenu" class="dropDownFilter">
+      <ul class="colors">
+        <li *ngFor="let color of colors"
+            class="{{color.nameColor}} btnColors"
+            [class.active]="selectedColor === color">
+          <button mat-mini-fab (click)="selectColor(color)"></button>
+            <span>{{color.nameColor}}</span>
+        </li>
+      </ul>
+    </mat-menu>
+    </div>
+
+      <div class="col s3 m3 l3 filtercontainer-right">
+          <mat-form-field>
+              <mat-select placeholder="Ціною" >
+                  <mat-option *ngFor="let priceSortOption of priceSortOptions" (click) = "sortByPrice(priceSortOption.value)" [value]="priceSortOption.value"  >
+                      {{priceSortOption.viewValue}}
+                  </mat-option>
+              </mat-select>
+          </mat-form-field>
+      </div>
+
+
+
+
+    <!--Main Menu HTML Code-->
+  <!--  <nav class="wsmenu">
+      <ul class="mobile-sub wsmenu-list">
+        <li class="closefilter"><a (click)="resetFilter()" class="" title="ОЧИСТИТИ ФІЛЬТР"><i class="fa fa-filter"></i><span>&nbsp;x</span></a></li>
+        <li><a href="javascript:void(0)">&nbsp;КАТЕГОРІЇ&nbsp; <i class="wsmenu-arrow fa fa-angle-down"></i></a>
+          <ul class="wsmenu-submenu">
+            <li *ngFor="let category of categories" [value]="category.description">
+              <a (click)="selectCategory(category)">{{ category.description }}</a>
+            </li>
+          </ul>
+        </li>
+
+        <li><a href="javascript:void(0)">&nbsp;РОЗМІР&nbsp; <i class="wsmenu-arrow fa fa-angle-down"></i></a>
+          <div class="megamenu">
+            <div class="row row-size">
+              <div *ngFor="let size of sizeProduct" class="col s1 margin-bottom1">
+                <mat-checkbox
+                        [checked]="size.check"
+                        (change)="size.check = !size.check"
+                        (click)="selectSize(size.size,size.check)"
+                  >
+                  {{size.size}}
+                </mat-checkbox>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li><a href="javascript:void(0)">&nbsp;КОЛІР&nbsp; <i class="wsmenu-arrow fa fa-angle-down"></i></a>
+          <div class="megamenu">
+            <ul class="colors">
+              <li *ngFor="let color of colors"
+                  class="{{color.nameColor}}"
+                  [class.active]="selectedColor === color">
+                <button mat-mini-fab (click)="selectColor(color)"></button>
+              </li>
+            </ul>
+          </div>
+        </li>
+
+
+
+        <li class="right-panel">
+          <div class="select-filter">
+          <mat-form-field>
+          <mat-select placeholder="ціною" >
+            <mat-option (click) = "sortByPrice('asc')" >
+              Від дешевих до дорогих
+            </mat-option>
+            <mat-option (click) = "sortByPrice('desc')" >
+              Від дорогих до дешевих
+            </mat-option>
+          </mat-select>
+          </mat-form-field></div>
+        </li>
+        <li class="right-panel"><p class="sort-title">сортувати за:<p></li>
+
+      </ul>
+    </nav> -->
+    <!--Menu HTML Code-->
+
+
+
+
+    <!--
+    <div class="filtercontainer">
+      <mat-form-field>
+        <mat-select placeholder="КАТЕГОРІЯ" >
+          <mat-option *ngFor="let category of categories" [value]="category.value">
+            {{ category.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      </div>
+
+      <div class="filtercontainer">
+        <mat-form-field>
+          <mat-select placeholder="РОЗМІР" >
+            <mat-option *ngFor="let size of sizes" [value]="size.value">
+              {{ size.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="filtercontainer">
+        <mat-form-field>
+          <mat-select placeholder="КОЛІР" >
+            <mat-option *ngFor="let color of colors" [value]="color.value">
+              {{ color.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div> -->
+  <!-- <div class="sort-title">
+      <p>cортувати за:</p>
+    </div> -->
+
+      <!--<div class="filtercontainer-right">
+
+
+        <mat-form-field>
+          <mat-select placeholder="Ціною" >
+            <mat-option *ngFor="let priceSortOption of priceSortOptions" (click) = "sortByPrice(priceSortOption.value)" [value]="priceSortOption.value"  >
+              {{priceSortOption.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div> -->
+    <!--<div class="filtercontainer-right">
+      <mat-form-field>
+        <mat-select placeholder="Акцією" >
+          <mat-option *ngFor="let color of colors" [value]="color.value">
+            {{ color.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div> -->
+ <!-- </div>
+</div>
+</div>-->
+    <div class="testfiltertop">
+        <nav class="navbar navbar-default navbar-static menu-filter">
+
+            <!-- Mobile Component start -->
+            <div class="navbar-header">
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".js-navbar-collapse">
+                    <!--<span class="icon-bar"></span> -->
+                    <p class="pFiltBtn" title="ОЧИСТИТИ ФІЛЬТР"><i class="fa fa-filter"></i> ФІЛЬТР</p>
+                </button>
+               <!-- <div class="navbar-toggle js-navbar-collapse mobFiltBtn"><p>СОРТУВАННЯ</p></div> -->
+                <a title="ОЧИСТИТИ ФІЛЬТР" class="navbar-brand aFiltBtn" (click)="resetFilter()"><i class="fa fa-filter fa-lg"></i>x</a>
+
+                <a *ngIf="menuCategory" class="navbar-brand aFiltBtn aCateg">{{menuCategory.name}}</a>
+            </div>
+            <!-- Mobile component end -->
+            <div class="collapse navbar-collapse js-navbar-collapse">
+                <ul class="nav navbar-nav filters-stright">
+
+                    <!-- Size filter start -->
+                    <li class="dropdown dropdown-large mDropFilter">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">РОЗМІР
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-large row">
+                            <li>
+                                <div class="row row-size">
+                                    <div *ngFor="let size of sizeProduct" class="col s3 m2 l2 margin-bottom1">
+                                        {{size.value}}
+                                        <mat-checkbox
+                                                [checked]="size.check"
+                                                (change)="size.check = !size.check"
+                                                (click)="selectSize(size.value,size.check)">
+                                        </mat-checkbox>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- Size filter stop -->
+
+                    <!-- Filter color start -->
+                    <li class="dropdown dropdown-large mDropFilter">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">КОЛІР
+                          <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-large row">
+                        <li>
+                            <div class="row row-size">
+                                <div *ngFor="let color of colors"
+                                    class="{{color.nameColor}} col s4 m2 l2 colorBlocks"
+                                    [class.active]="selectedColor === color">
+                                    <button mat-mini-fab (click)="selectColor(color)"
+                                    [class.active]="selectedColor === color"></button>
+                                    <p class="colorName">{{color.nameColor}}</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    </li>
+                    <!-- Filter color finish -->
+
+                    <!-- Filter colection start -->
+                   <!-- <li class="dropdown dropdown-large mDropFilter">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">СЕЗОН
+                             <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-large row">
+                            <li>
+                                <div class="row row-size">
+                                    <div *ngFor="let collection of collectionProduct"
+                                            class="col s3 m2 l2 margin-bottom1">
+                                        {{collection.value}}
+                                        <mat-checkbox
+                                                [checked]="collection.check"
+                                                (change)="collection.check = !collection.check"
+                                                (click)="selectCollection(collection.value,collection.check)">
+                                        </mat-checkbox>
+                                    </div>
+
+                                </div>
+                            </li>
+                        </ul>
+                    </li> -->
+                    <!-- Filter colection stop -->
+
+                    <!-- Filter style start -->
+                  <!--  <li class="dropdown dropdown-large mDropFilter">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">СТИЛЬ
+                             <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-large row">
+                            <li>
+                                <div class="row row-size">
+                                    <div *ngFor="let style of styleProduct"
+                                            class="col s5 m4 l4 margin-bottom1">
+                                        {{style.value}}
+                                        <mat-checkbox
+                                                [checked]="style.check"
+                                                (change)="style.check = !style.check"
+                                                (click)="selectStyle(style.value,style.check)">
+                                        </mat-checkbox>
+                                    </div>
+
+                                </div>
+                            </li>
+                        </ul>
+                    </li> -->
+                    <!-- Filter style finish -->
+
+                    <!-- Filter Silhouette start -->
+                    <li class="dropdown dropdown-large mDropFilter">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">СИЛУЕТ
+                             <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-large row">
+                            <li>
+                                <div class="row row-size">
+                                    <div *ngFor="let pattern of patternProduct"
+                                           class="col s4 m3 l3 margin-bottom1">
+                                        {{pattern.value}}
+                                        <mat-checkbox
+                                                [checked]="pattern.check"
+                                                (change)="pattern.check = !pattern.check"
+                                                (click)="selectPattern(pattern.value, pattern.check)">
+                                        </mat-checkbox>
+                                    </div>
+
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- Filter Silhouette stop-->
+
+
+                    <li class="sortPan" style="float:right">
+                        <a (click) = "sortByPrice()"><i class="desc"
+                                                        [class.isAsc]="isAsc"
+                                                        [class.isDesc]="isDesc"
+                                                        aria-hidden="true"></i>
+                        за ціною
+                        </a>
+                        <!--<a (click) = "sortByPrice('desc')"><i class="fa fa-sort-amount-asc" aria-hidden="true"></i></a>-->
+                    </li>
+                </ul>
+            </div><!-- /.nav-collapse -->
+        </nav>
+    </div>

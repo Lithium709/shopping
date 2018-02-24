@@ -1,0 +1,8 @@
+
+<a class="closeCart" (click)="onClickClose()"><img src="../../assets/images/brand/close_grey.png" /></a>
+
+<div class="galBlock" *ngFor="let image of gallery; let i = index" [class.hidden]="i!==activeImageIndex">
+    <img class="imgblock" [src]="image.link" />
+        <a (click)="arrows('prev', i)"><div class="arrows prev"></div></a>
+        <a (click)="arrows('next', i)"><div class="arrows next"></div></a>
+</div>

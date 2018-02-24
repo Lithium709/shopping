@@ -1,0 +1,223 @@
+<!-- Head Section -->
+
+<!--<div class="head-section bg">
+    <div class="container">
+        <h4>Product <span class="font-light">Detail</span></h4>
+        <p>Angushop Product Detail</p>
+    </div>
+</div> -->
+
+<!-- Loading -->
+
+<div class="prod-bread">
+    <div class="container-bread">
+        <ul class="hr">
+        <li><a href="/">Магазин чоловічого одягу</a></li>
+            <li><a href="/catalog">Каталог</a></li>
+            <li><a href="/catalog?category={{product?.branches[0].description}}">{{product?.branches[0].description}}</a></li>
+        <li class="act-br">{{product?.nameUA}}</li>
+        </ul>
+
+    </div>
+</div>
+
+<!--<div class="valign-wrapper" *ngIf="loadingState">
+    <mat-spinner diameter="50" strokeWidth="5"></mat-spinner>
+</div> -->
+
+<div class="container-page" *ngIf="productState">
+    <div class="box-page">
+        <div class="row">
+            <div class="col l6 s12">
+                <h3 class="mobileTitle title">{{product?.nameUA}}</h3>
+                <div class="wrap-image">
+
+               <div class="" data-ride="carousel" data-pause="hover" data-interval="4000" data-duration="2000">
+                        <div class="imgPrevImg">
+                            <div *ngFor="let image of product.photos; let i = index"
+                                 (swipeleft)="swipe($event.type, i)"
+                                 (swiperight)="swipe($event.type,i)"
+                                 (swipedown)="swipe($event.type,i)"
+                                 (swipeup)="swipe($event.type,i)"
+
+                                 (tap)="onTapZoom(i)"
+                                    class="item"
+                                    [class.hidden]="i!==activeImageIndex"
+                                    [class.zoomed]="i===zoomedIndex"
+                                  >
+
+                                   <img class="prodDetImgSlid" (click)="openDialog()" [src]="image.link"/>
+
+                                <a (click)="arrows('next', i)"><div class="arrows prev"></div></a>
+                                <a (click)="arrows('prev', i)"><div class="arrows next"></div></a>
+                            </div>
+                        </div>
+               </div>
+            </div>
+            </div>
+            <div class="col l6 s12 blokDescRight">
+                <h3 class="desctopTitle title">{{product?.nameUA}}</h3>
+                <div class="price">
+                    <div class="row">
+                        <div class="col m4 s6 l6">
+                            <p class="value">В НАЯВНОСТІ</p>
+                           <!-- <h4 class="value">{{product.price | number}} ГРН</h4> -->
+                        </div>
+                        <div class="col m8 s6 l6">
+                            <p class="value artprod">КОД ТОВАРУ</p>
+                            <p class="value artprod sku">{{product.article}}</p>
+                           <!-- <a class="link" (click)="addWishlist('wishlist',productWishlist)"><mat-icon>&#xE87E;лист бажань</mat-icon></a>-->
+                        </div>
+
+                    </div>
+
+                    <!-- Color start -->
+                    <div class="row row-size">
+                        <div class="col m12 s12 sizeContainer">
+                            <ul class="ulSize">
+                                <li class="prop-title">Колір:</li>
+                                <li class="{{product.color}} colorBlocks ">
+                                    <button mat-mini-fab [class.active]="selectedColor === color"></button>
+                                    {{product.color}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <hr/>
+                    <!-- Color end -->
+                    <!--SIZE-->
+                    <div *ngIf="sizes[0]" class="row row-size">
+                    <div class="col m12 s12 sizeContainer">
+                        <p class="prop-title">Розмір:</p>
+                       <!-- <div class="col m2 s2">
+                            <p class="prop-title">Розмір:</p>
+                        </div> -->
+                       <!-- <div *ngFor="let size of sizes" class="col m1 s1 margin-bottom1"> -->
+                            <ul class="ulSize">
+                                <li *ngFor="let size of sizes" class="propli"
+                                    [class.selectable]="selectedSizes.indexOf(size) > -1"
+                                    [class.selected]="selectedSizes.indexOf(size) > -1 &&  selectedItems.length==1"
+                                >
+                                    <a class="link-prop" (click)="highlightGrowths(size)">
+                                        {{size}}
+                                    </a>
+                                </li>
+                            </ul>
+
+                      <!--  </div> -->
+                    </div>
+                    </div>
+                    <!--SIZE END-->
+
+                    <!--GROWS-->
+                    <div class="row row-size gro">
+                    <div *ngIf="growths[0]" class="col m12 s12 sizeContainer">
+                        <p class="prop-title">Зріст:</p>
+                            <ul class="ulSize">
+                                <li  *ngFor="let growth of growths"
+                                     class="propli"
+                                     [class.selectable]="selectedGrowths.indexOf(growth) > -1"
+                                     [class.selected]="selectedSizes.indexOf(size) > -1 &&  selectedItems.length==1">
+                                    <a class="link-prop" (click)= "highlightSizes(growth)" >
+                                        {{growth}}
+                                    </a>
+                                </li>
+                            </ul>
+                    </div>
+                    </div>
+                    <!--GROWS END-->
+
+
+                    <!--PRISE START-->
+                    <div class="price">
+                        <span *ngIf="product.oldPrice" class="value1">{{product.oldPrice | number}} грн</span>
+                        <span class="value2">{{product.price | number}} грн</span>
+                    </div>
+
+                    <div class="row addtocart">
+                        <div class="col m12 s12">
+                    <button title="{{(selectedItems.length !== 1)? 'Виберіть розмір' : ''}}" [disabled]="selectedItems.length !== 1" mat-button class="btn btn-primary"
+                            (click)="addCart('products')">
+                        ДОДАТИ В КОШИК
+                    </button>
+                        </div>
+                    </div>
+
+                    <!--PRICE END-->
+
+
+                    <!--COLOR
+                    <div class="row-size col m12 s12 size">
+                        <div class="col m2 s2">
+                            <p class="prop-title">КОЛІР:</p>
+                        </div>
+                        <div class="col m1 s1 margin-bottom1">
+                            <ul>
+                                <li>{{product.color}}</li>
+                            </ul>
+
+                        </div>
+                    </div>
+                   COLOR END-->
+
+                </div>
+
+               <!-- <h5>ОПИС</h5>
+                    {{product.description}} -->
+            </div>
+        </div>
+    </div>
+
+    <div class="propertiesDetProd">
+        <div *ngIf="product" class="row">
+
+            <div class="col s12 m6 l6">
+                <h4 class="h6detal">ДЕТАЛІ ПРОДУКТУ</h4>
+                <div class="detDescription" *ngIf="!product.description">
+                    Детальний опис товару відсутній
+                </div>
+                <div class="detDescription" *ngIf="product.description">
+                    {{product.description}}
+                </div>
+                <h5 class="propTitleDet">Характеристики:</h5>
+                <ul class="ulPropDetale">
+                    <li class="detpropLi">Сезон: <span class="propGold">Всезонна</span></li>
+                    <li class="detpropLi"> Виробництво: <span class="propGold">	Україна</span></li>
+                    <li class="detpropLi">Колекція:	<span class="propGold">{{product.collection}}</span></li>
+                    <li class="detpropLi">Лінія: <span class="propGold">Gregory Arber</span></li>
+                    <li class="detpropLi">Склад: <span class="propGold">{{product.composition}}</span></li>
+                    <li class="detpropLi">Колір: <span class="propGold">{{product.color}}</span></li>
+                    <li class="detpropLi">Дизайн: <span class="propGold">{{product.style}}</span></li>
+                </ul><!--  *ngIf="product.photos.length>3" -->
+            </div>
+
+
+            <div class="col s12 m6 l6">
+                <div class="detBlockImg">
+                    <img class="detBlockImgS" [src]="product.photos[0]?.link" [alt]="product.nameUA"/>
+                    <img class="detBlockImgS" [src]="product.photos[1]?.link" [alt]="product.nameUA"/>
+                    <img class="detBlockImgS" [src]="product.photos[2]?.link" [alt]="product.nameUA"/>
+                    <img class="detBlockImgS" [src]="product.photos[3]?.link" [alt]="product.nameUA"/>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Seo block start -->
+
+        <div class="seoText">
+                <article>
+                    <p>З 13 грудня 2017 року в флагманах національної мережі магазинів чоловічого одягу Arber впроваджується новий персональний сервіс. Ми з особливою гордістю презентуємо послуги індивідуального пошиття <strong>Fashion Tailor by Gregory Arber.</strong> </p>
+                    <input id="read-more-toggle-2" class="read-more-toggle" type="checkbox">
+                    <div class="read-more-content">
+                        <p><strong>Мета Fashion Tailor by Gregory Arber</strong> – створення якісного та модного індивідуального стилю, доступного для українців. До цього часу індивідуальне пошиття, так званий tailoring класичного британського формату made to measure, або MTM, був прерогативою бутиків локальних ринків преміум-сегмента. Але саме МТМ- формат дозволяє створити, наприклад, ідеальний чоловічий костюм за 3-4 тижні. Чоловіки, які цінують час та гроші, будуть приємно здивовані. Це набуває особливого значення, коли ви не тільки замовляєте стиль для довершеного персонального образу або прагнете врахування індивідуальних потреб фігури, а й плануєте видатну подію.
+                            Послуга стартує в Києві (м-н «Arber» вул. Хрещатик 13, м-н «Arber» ТЦ «Ocean Plaza») та Одесі (м-н «Gregory Arber» вул. Грецька 38). З 3-го січня 2018 року послуга буде представлена в 20 магазинах 10 міст України.</p>
+                    </div>
+                    <label class="read-more-toggle-label draw" for="read-more-toggle-2"></label>
+                </article>
+        </div>
+
+    <!-- Seo block finish -->
+
+</div>

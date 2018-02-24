@@ -1,0 +1,36 @@
+
+  <div class="megacolimage mobVersion">
+    <a (click)="onClick($event)" class="linksoblog" routerLink="/catalog">
+      <h3 class="title">ВЕСЬ КАТАЛОГ</h3>
+    </a>
+    <div class="fluid-width-video-wrapper">
+      <ul class="megacollink">
+        <li>
+          <a (click)="onClick($event)" *ngFor="let menuCategory of menuCategories"
+             href="/catalog?menuCategory={{menuCategory.name.split(' ').join('-')}}">
+            {{menuCategory.name}}
+          </a>
+        </li>
+        <!--<li><a (click)="onClick($event)" class="goldOllProd" href="/catalog">Всі товари</a></li> -->
+        <!--<li><a (click)="onClick($event)" href="#/catalog"><p>Весь каталог</p></a></li> -->
+      </ul>
+    </div>
+  </div>
+  <div class="megacolimage mobVersion">
+    <h3 class="title">Акції та пропозиції</h3>
+    <div class="fluid-width-video-wrapper">
+      <ul class="megacollink">
+        <li><a (click)="onClick($event)" *ngFor="let menuCategory of menuCategoriesAttention"
+               href="/catalog?menuCategory={{menuCategory.name.split(' ').join('-')}}">
+          {{menuCategory.name}}
+        </a>
+      </ul>
+    </div>
+  </div>
+  <div class="megacolimage mobVersion banRightBlokMenu">
+    <h3 class="title">Оренда стилю</h3>
+    <div *ngFor="let htmlBlock of htmlBlocks" class="fluid-width-video-wrapper"><a (click)="onClick($event)" class="linkHtmlBan"><img class="htmlBanImg" src="{{htmlBlock.image}}" alt=""/></a>
+      {{htmlBlock.title}}
+    </div>
+  </div>
+

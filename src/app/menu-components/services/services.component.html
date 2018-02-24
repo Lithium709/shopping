@@ -1,0 +1,18 @@
+  <div class="twoblock mobVersion">
+    <h3 class="title">Наявні послуги</h3>
+    <div class="fluid-width-video-wrapper">
+      <ul  class="megacollink">
+        <!--<li *ngFor="let blogPost of blogPosts"><a (click)="onClick($event)" [routerLink]="'/blog/' + blogPost.id"> {{blogPost.title}}</a><p class="blockdisc">{{blogPost.shortDescription}}</p></li>-->
+        <li *ngFor="let block of leftHtmlBlocks">
+            <a  href="{{block.link}}">{{block.title}}</a>
+            <p [innerHTML]="block?.description" class="blockdisc"></p>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div *ngFor="let block of rightHtmlBlocks" class="megacolimage">
+    <h3 class="title">{{block.title}}</h3>
+    <div class="fluid-width-video-wrapper">
+        <img src="{{block.image}}" alt=""/>
+    </div>
+  </div>

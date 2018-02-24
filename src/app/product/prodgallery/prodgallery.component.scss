@@ -1,0 +1,71 @@
+
+.imgblock{
+  margin: 0 auto;
+  height:600px;
+}
+
+.galBlock{
+  width: 100%;
+  text-align: center;
+}
+
+.arrows{
+  width: 48px;
+  height: 48px;
+  border-color: #000;
+  position: absolute;
+  top: 50%;
+  margin-top: -31px;
+}
+
+.prev {
+  border-bottom: 1px solid gray;
+  border-left: 1px solid gray;
+  transform: rotate(45deg);
+  left: 30px;
+}
+
+.next {
+  border-bottom: 1px solid gray;
+  border-left: 1px solid gray;
+  transform: rotate(-135deg);
+  right: 30px;
+}
+
+.closeCart{
+  float: right;
+}
+
+@media (max-width:767px){
+  .imgblock{
+    height: 400px;
+  }
+  .arrows{
+    width: 18px;
+    height: 18px;
+    border-color: #000;
+    position: absolute;
+    top: 50%;
+    margin-top: -31px;
+  }
+  .mat-dialog-container{
+    padding: 0px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
