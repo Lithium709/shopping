@@ -1,14 +1,98 @@
 <!doctype html>
-<html lang="en">
+<html>
 <head>
   <meta charset="utf-8">
-  <title>NgUniversalDemo</title>
+  <title>Arber Online Store</title>
   <base href="/">
-
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
+  <link rel="stylesheet" type="text/css" media="all" href="assets/theme/css/webslidemenu.css" />
+  <link rel="stylesheet" type="text/css" media="all" href="assets/theme/css/font-awesome.css" />
+  <link rel="stylesheet" type="text/css" href="/assets/loader.css" />
+  <link rel="stylesheet" id="select-color" type="text/css" href="/assets/theme/css/pink.css" />
+  <!-- <link rel="stylesheet" href="assets/theme/fonts/fontawesome-webfont.svg"/> -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+  <link href="assets/theme/css/bootstrap.min.css" rel="stylesheet" media="all"/>
+  <!--  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet"> -->
+
+  <link type="text/css" href="assets/theme/css/animate.min.css" rel="stylesheet" rel="stylesheet" media="all"/>
+  <link type="text/css" href="assets/theme/css/full_width_animated_layers_008.css" rel="stylesheet" media="all"/>
+  <link type="text/css" href="assets/theme/css/commerce_columns_carousel.css" rel="stylesheet" media="all"/>
+  <script type="text/javascript" src="assets/theme/js/jquery.min.js"></script>
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  <!--Main Menu File-->
+  <!--
+  <script type="text/javascript" src="assets/theme/js/webslidemenu.js"></script>
+  -->
+  <!--Main Menu File-->
+
+  <!--For Demo Only (Remove below css file and Javascript) -->
+  <link rel="stylesheet" type="text/css" media="all" href="assets/theme/css/demo.css" />
+  <!--
+  <script type='text/javascript'>
+      $(document).ready(function() {
+          $(".gry, .blue, .green, .red, .orange, .yellow, .purple, .pink, .whitebg, .tranbg").on("click", function() {
+              $(".wsmenu")
+                  .removeClass()
+                  .addClass('wsmenu pm_' + $(this).attr('class') );
+          });
+
+          $(".blue-grdt, .gry-grdt, .green-grdt, .red-grdt, .orange-grdt, .yellow-grdt, .purple-grdt, .pink-grdt").on("click", function() {
+              $(".wsmenu")
+                  .removeClass()
+                  .addClass('wsmenu pm_' + $(this).attr('class') );
+          });
+      });
+  </script>
+  -->
+  <!--For Demo Only (End Removable) -->
+
+
 </head>
 <body>
-  <app-root></app-root>
+<!-- App Component -->
+<app-root></app-root>
+
+<!-- First Loading -->
+<!--
+<div class="loader" id="loader">
+  <img src="/assets/images/brand/logo-stripe.jpg" alt="" />
+</div>
+-->
+<!--
+<script>
+    /* When the user clicks on the button,
+    toggle between hiding and showing the dropdown content */
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    function filterFunction() {
+        var input, filter, ul, li, a, i;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        div = document.getElementById("myDropdown");
+        a = div.getElementsByTagName("a");
+        for (i = 0; i < a.length; i++) {
+            if (a[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+                a[i].style.display = "block";
+            } else {
+                a[i].style.display = "none";
+            }
+        }
+    }
+</script>
+-->
+<!--
+<script src="assets/theme/js/bootstrap.min.js"></script>
+-->
+<!--  <script src="assets/theme/js/paradise_slider_min.js"></script> -->
+<!--  <script src="assets/theme/js/jquery.touchSwipe.min.js"></script> -->
+<!--  <script src="assets/theme/js/responsive_bootstrap_carousel.min.js"></script> -->
+<!-- <script src="https://checkout.stripe.com/checkout.js"></script> -->
+
 </body>
 </html>
+

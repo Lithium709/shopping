@@ -1,0 +1,250 @@
+ [
+        {
+                "id": 14,
+                "nameUA": "Джемпер д/р",
+                "nameRU": null,
+                "nameEN": null,
+                "description": null,
+                "pattern": "полоска",
+                "style": "Arber",
+                "color": "синий, голубой",
+                "collection": "F - Осень-Зима 2017-2018",
+                "composition": "100% бавовна",
+                "price": 559,
+                "oldPrice": 799,
+                "article": "AF 10.62.30",
+                "photos": [
+                    {
+                        "id": 84,
+                        "link": "http://arber.od.ua:8081/AF10.62.30/1.jpg"
+                    },
+                    {
+                        "id": 85,
+                        "link": "http://arber.od.ua:8081/AF10.62.30/2.jpg"
+                    },
+                    {
+                        "id": 86,
+                        "link": "http://arber.od.ua:8081/AF10.62.30/3.jpg"
+                    },
+                    {
+                        "id": 87,
+                        "link": "http://arber.od.ua:8081/AF10.62.30/9.jpg"
+                    }
+                ]
+            },
+
+         {
+                "id": 19,
+                "nameUA": "Шарф чоловiчий",
+                "nameRU": null,
+                "nameEN": null,
+                "description": null,
+                "pattern": "однотон",
+                "style": "Arber",
+                "color": "коричневий",
+                "collection": "F - Осень-Зима 2017-2018",
+                "composition": "100% акрил",
+                "price": 279,
+                "oldPrice": 399,
+                "article": "AF 15.12.30",
+                "photos": [
+                    {
+                        "id": 105,
+                        "link": "http://arber.od.ua:8081/AF15.12.30/1.jpg"
+                    },
+                    {
+                        "id": 106,
+                        "link": "http://arber.od.ua:8081/AF15.12.30/2.jpg"
+                    },
+                    {
+                        "id": 107,
+                        "link": "http://arber.od.ua:8081/AF15.12.30/3.jpg"
+                    },
+                    {
+                        "id": 108,
+                        "link": "http://arber.od.ua:8081/AF15.12.30/4.jpg"
+                    }
+                ]
+
+        },
+         {
+                "id": 22,
+                "nameUA": "Шарф чоловiчий",
+                "nameRU": null,
+                "nameEN": null,
+                "description": null,
+                "pattern": "жаккард",
+                "style": "Arber",
+                "color": "бордовий",
+                "collection": "F - Осень-Зима 2017-2018",
+                "composition": "100% акрил",
+                "price": 279,
+                "oldPrice": 399,
+                "article": "AF 15.02.30",
+                "photos": [
+                    {
+                        "id": 114,
+                        "link": "http://arber.od.ua:8081/AF15.02.30/1.jpg"
+                    },
+                    {
+                        "id": 115,
+                        "link": "http://arber.od.ua:8081/AF15.02.30/2.jpg"
+                    },
+                    {
+                        "id": 116,
+                        "link": "http://arber.od.ua:8081/AF15.02.30/3.jpg"
+                    },
+                    {
+                        "id": 117,
+                        "link": "http://arber.od.ua:8081/AF15.02.30/4.jpg"
+                    }
+                ]
+
+        },
+        {
+                "id": 24,
+                "nameUA": "Шарф чоловiчий",
+                "nameRU": null,
+                "nameEN": null,
+                "description": null,
+                "pattern": "жаккард",
+                "style": "Arber",
+                "color": "бордовий",
+                "collection": "F - Осень-Зима 2017-2018",
+                "composition": "100% акрил",
+                "price": 279,
+                "oldPrice": 399,
+                "article": "AF 15.08.30",
+                "photos": [
+                    {
+                        "id": 121,
+                        "link": "http://arber.od.ua:8081/AF15.08.30/1.jpg"
+                    },
+                    {
+                        "id": 122,
+                        "link": "http://arber.od.ua:8081/AF15.08.30/2.jpg"
+                    },
+                    {
+                        "id": 123,
+                        "link": "http://arber.od.ua:8081/AF15.08.30/3.jpg"
+                    }
+                ]
+
+        },
+         {
+                "id": 25,
+                "nameUA": "Шарф чоловiчий",
+                "nameRU": null,
+                "nameEN": null,
+                "description": null,
+                "pattern": "жаккард",
+                "style": "Arber",
+                "color": "синий микс",
+                "collection": "F - Осень-Зима 2017-2018",
+                "composition": "100% акрил",
+                "price": 279,
+                "oldPrice": 399,
+                "article": "AF 15.09.30",
+                "photos": [
+                    {
+                        "id": 124,
+                        "link": "http://arber.od.ua:8081/AF15.09.30/1.jpg"
+                    },
+                    {
+                        "id": 125,
+                        "link": "http://arber.od.ua:8081/AF15.09.30/2.jpg"
+                    },
+                    {
+                        "id": 126,
+                        "link": "http://arber.od.ua:8081/AF15.09.30/3.jpg"
+                    }
+                ]
+            }
+        ,
+        {
+                "id": 26,
+                "nameUA": "Шарф чоловiчий",
+                "nameRU": null,
+                "nameEN": null,
+                "description": null,
+                "pattern": "жаккард",
+                "style": "Arber",
+                "color": "синий микс",
+                "collection": "F - Осень-Зима 2017-2018",
+                "composition": "100% акрил",
+                "price": 279,
+                "oldPrice": 399,
+                "article": "AF 15.11.30",
+                "photos": [
+                    {
+                        "id": 128,
+                        "link": "http://arber.od.ua:8081/AF15.11.30/2.jpg"
+                    },
+                    {
+                        "id": 129,
+                        "link": "http://arber.od.ua:8081/AF15.11.30/3.jpg"
+                    },
+                    {
+                        "id": 127,
+                        "link": "http://arber.od.ua:8081/AF15.11.30/1.jpg"
+                    }
+                ]
+
+        },
+        {
+            "_index": "product",
+            "_type": "product",
+            "_id": "29",
+            "_score": 1.0,
+            "_source": {
+                "id": 29,
+                "nameUA": "Шапка чоловiча",
+                "nameRU": null,
+                "nameEN": null,
+                "description": null,
+                "pattern": "",
+                "style": "Arber",
+                "color": "бордовий",
+                "collection": "F - Осень-Зима 2017-2018",
+                "composition": "100% акрил",
+                "price": 209,
+                "oldPrice": 399,
+                "article": "AD 19.11.40",
+                "photos": [
+                    {
+                        "id": 138,
+                        "link": "http://arber.od.ua:8081/AD19.11.40/1.jpg"
+                    }
+                ]
+            }
+        },
+     {
+         "id": 40,
+         "nameUA": "Шапка чоловiча",
+         "nameRU": null,
+         "nameEN": null,
+         "description": null,
+         "pattern": "однотон",
+         "style": "Arber",
+         "color": "коричневий",
+         "collection": "F - Осень-Зима 2017-2018",
+         "composition": "80% поліестер, 20% віскоза",
+         "price": 279,
+         "oldPrice": 399,
+         "article": "AF 19.21.30",
+         "photos": [
+             {
+                 "id": 170,
+                 "link": "http://arber.od.ua:8081/AF19.21.30/1.jpg"
+             },
+             {
+                 "id": 171,
+                 "link": "http://arber.od.ua:8081/AF19.21.30/2.jpg"
+             },
+             {
+                 "id": 172,
+                 "link": "http://arber.od.ua:8081/AF19.21.30/3.jpg"
+             }
+         ]
+     }
+ ]

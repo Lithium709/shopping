@@ -1,0 +1,23 @@
+<!-- Start Wrap -->
+<div class="wrap" >
+  <!--<app-toprow></app-toprow> -->
+    <!-- <app-menu></app-menu> -->
+
+    <!--<app-side (toggle)="mainclass = !mainclass"></app-side>-->
+    <div class="main">
+        <router-outlet></router-outlet>
+        <!-- Start Footer -->
+        <!--
+        <app-footer></app-footer>
+        -->
+        <ng-template footer-host></ng-template>
+        <!-- End Footer -->
+    </div>
+</div>
+<!-- End Wrap -->
+<!-- Loading Slim -->
+<div class="loading-slim">
+    <!--
+    <ng2-slim-loading-bar [color]="'#c19f63'" [height]="'2px'"></ng2-slim-loading-bar>
+    -->
+</div>

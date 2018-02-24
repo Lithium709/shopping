@@ -4,6 +4,8 @@ import {ModuleMapLoaderModule} from '@nguniversal/module-map-ngfactory-loader';
 
 import {AppModule} from './app.module';
 import {AppComponent} from './app.component';
+import {FooterComponent} from "./footer/footer.component";
+import {FooterDirective} from "./footer.directive";
 
 @NgModule({
   imports: [
@@ -12,9 +14,10 @@ import {AppComponent} from './app.component';
     AppModule,
     ServerModule,
     ModuleMapLoaderModule,
+
   ],
   // Since the bootstrapped component is not inherited from your
   // imported AppModule, it needs to be repeated here.
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppServerModule {}
