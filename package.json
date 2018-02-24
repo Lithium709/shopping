@@ -30,11 +30,13 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^5.0.0",
+    "@angular/cdk": "5.2.2",
     "@angular/common": "^5.0.0",
     "@angular/compiler": "^5.0.0",
     "@angular/core": "^5.0.0",
     "@angular/forms": "^5.0.0",
     "@angular/http": "^5.0.0",
+    "@angular/material": "^5.2.2",
     "@angular/platform-browser": "^5.0.0",
     "@angular/platform-browser-dynamic": "^5.0.0",
     "@angular/platform-server": "^5.0.0",
@@ -42,10 +44,13 @@
     "@nguniversal/express-engine": "^5.0.0-beta.5",
     "@nguniversal/module-map-ngfactory-loader": "^5.0.0-beta.5",
     "core-js": "^2.4.1",
-    "rxjs": "^5.5.2",
-    "zone.js": "^0.8.14",
+    "ng2-opd-popup": "^1.1.21",
     "ng2-slim-loading-bar": "^4.0.0",
-    "ng2-opd-popup": "^1.1.21"
+    "ng2-webstorage": "^2.0.0",
+    "ngx-cookie-service": "^1.0.10",
+    "ngx-pagination": "^3.1.0",
+    "rxjs": "^5.5.2",
+    "zone.js": "^0.8.14"
   },
   "devDependencies": {
     "@angular/cli": "^1.5.0",

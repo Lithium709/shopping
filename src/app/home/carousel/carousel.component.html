@@ -1,0 +1,15 @@
+<div class="mainBlogAnnonce">
+<div class="container-fluid">
+    <div class="htmlBlockMain">
+        <div class="row">
+            <div *ngFor="let block of htmlBlocks" class="col s12 m6 l6">
+                <a href="#"><h4 class="titleBlock">{{block.title}}</h4></a>
+                <h6 [innerHTML]=block?.description class="shortdesc">{{block?.description}}</h6>
+                <div>
+                    <a href="{{block.link}}"><img class="imgAnMain" src="{{block.image}}"/></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

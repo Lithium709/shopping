@@ -1,0 +1,30 @@
+.mainBlogAnnonce{
+  margin-top: -144px;
+}
+
+.htmlBlockMain{
+  margin-top: 100px;
+}
+
+.titleBlock{
+  padding-top: 20px;
+  color: #183051;
+}
+
+.shortdesc{
+  margin-top: -15px;
+  color: gray;
+}
+
+.imgAnMain{
+  width: 100%;
+}
+
+@media only screen and (max-width: 780px) {
+
+
+  .container-fluid{
+  padding-right: 0px;
+  padding-left: 0px;
+}
+}

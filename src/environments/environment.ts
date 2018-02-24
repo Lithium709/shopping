@@ -1,8 +1,8 @@
-// The file contents for the current environment will overwrite these during build.
-// The build system defaults to the dev environment which uses `environment.ts`, but if you do
-// `ng build --env=prod` then `environment.prod.ts` will be used instead.
-// The list of which env maps to which file can be found in `.angular-cli.json`.
-
 export const environment = {
-  production: false
+  production: true,
+  apiUrl: 'http://esarber.ukr-on.com',
+  authUrl:'http://arber.ukr-on.com',
+  //authUrl:'localhost:8080',
+  deliveryApiKey: "e7175235694e986d34740ed2d9526420",
+  deliveryUrl: "https://api.novaposhta.ua/v2.0/json/"
 };

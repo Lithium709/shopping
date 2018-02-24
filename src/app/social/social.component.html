@@ -1,0 +1,10 @@
+
+<form  ngNoForm action="{{ providerURL }}" method="POST">
+  <button class="sosiBtn fa fa-{{ provider }} fa-2x" type="submit" ></button>
+  <input name="scope" type="hidden" value="{{ providerSetting }}"/>
+  <input name="_csrf" type="hidden" value="{{ csrf }}"/>
+</form>
+
+<!--
+<a (click)="signIn()" ><i class="fa fa-{{ provider }} fa-2x" aria-hidden="true"></i></a>
+-->

@@ -1,0 +1,66 @@
+.seoText{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-left: 30px;
+  padding-top: 15px;
+  padding-right: 30px;
+  background-color: whitesmoke;
+}
+
+.read-more-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .5s ease;
+}
+
+.inInstagram{
+  margin-top: -20px;
+}
+
+.read-more-toggle {
+  display: none;
+}
+
+
+
+.read-more-toggle-label {
+  display: inline-block;
+  user-select: none;
+  cursor: pointer;
+  border: none;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  margin-left: 0px;
+  margin-top: 8px;
+  margin-bottom: 20px;
+  border: 1px solid;
+  font-size: .8em;
+  background: white;
+  color: #183051;
+  font-size: 14px;
+}
+
+.read-more-toggle-label:after {
+   content: "ДЕТАЛЬНІШЕ";
+  }
+
+.read-more-toggle:checked + .read-more-content {
+  display: block;
+  /* css animation won't work with "auto"; set to some height larger
+	than the content */
+  max-height: 1000px;
+}
+
+.read-more-toggle:checked + .read-more-content + .read-more-toggle-label:after {
+  content: "ЗГОРНУТИ";
+}
+
+article {
+
+}
+
+article p {
+  margin-bottom: .5em;
+}

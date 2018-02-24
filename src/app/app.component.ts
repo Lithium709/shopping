@@ -1,15 +1,12 @@
 import {
     Component, ViewChild, ElementRef, AfterViewInit, HostListener, ComponentFactoryResolver,
-    OnDestroy, Inject
+    OnDestroy
 } from '@angular/core';
 import {Router, NavigationEnd} from '@angular/router';
 import {Title, Meta} from '@angular/platform-browser';
-import {SlimLoadingBarService} from 'ng2-slim-loading-bar';
+// import {SlimLoadingBarService} from 'ng2-slim-loading-bar';
 import {FooterDirective} from "./footer.directive";
 import {FooterComponent} from "./footer/footer.component";
-import { PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser, isPlatformServer } from '@angular/common';
-
 
 @Component({
     selector: 'app-root',
