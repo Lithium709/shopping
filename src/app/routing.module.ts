@@ -20,6 +20,11 @@ import { WishlistComponent } from './product/wishlist/wishlist.component';
 
 import { OpenorderComponent} from "./cabinet/openorder/openorder.component";
 import { OrderListComponent } from "./cabinet/order-list/order-list.component";
+import {ReturdetaleComponent} from "./cabinet/returdetale/returdetale.component";
+import {ReturnlistComponent} from "./cabinet/returnlist/returnlist.component";
+import {PersoninfoComponent} from "./cabinet/personinfo/personinfo.component";
+import {PersonSettingsComponent} from "./cabinet/person-settings/person-settings.component";
+
 
 import {NavblogComponent} from "./mblog/navblog/navblog.component";
 import { BlogComponent } from "./blog/blog.component";
@@ -58,6 +63,10 @@ const routes: Routes = [
     },
     */
     { path: 'order-list', component: OrderListComponent},
+    { path: 'returnorder', component: ReturdetaleComponent},
+    { path: 'returnlist', component: ReturnlistComponent},
+    { path: 'me', component: PersoninfoComponent},
+    { path: 'cabinet/setings', component: PersonSettingsComponent},
 
     { path: 'blog/:title', component: BlogComponent},
     { path: 'blog-posts', component: NavblogComponent}
