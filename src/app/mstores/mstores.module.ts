@@ -4,6 +4,7 @@ import { StoreDetailComponent } from './store-detail/store-detail.component';
 import {StoresComponent} from './stores/stores.component';
 import { RouterModule } from '@angular/router';
 import { AgmCoreModule } from '@agm/core';
+
 @NgModule({
   imports: [
     CommonModule,

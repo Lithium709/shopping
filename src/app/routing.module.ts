@@ -27,6 +27,9 @@ import {PersonSettingsComponent} from "./cabinet/person-settings/person-settings
 
 import { ContactComponent } from './contact/contact.component';
 
+import { StoresComponent } from "./mstores/stores/stores.component";
+import {StoreDetailComponent} from "./mstores/store-detail/store-detail.component";
+
 import {NavblogComponent} from "./mblog/navblog/navblog.component";
 import { BlogComponent } from "./blog/blog.component";
 // ELements
@@ -69,6 +72,8 @@ const routes: Routes = [
     { path: 'me', component: PersoninfoComponent},
     { path: 'cabinet/setings', component: PersonSettingsComponent},
 
+    { path: 'stores/:cityName', component: StoresComponent},
+    { path:'store-detail/:cityName/:storeId', component: StoreDetailComponent},
 
     { path: 'Login-Show',  component: ContactComponent },
     { path: 'blog/:title', component: BlogComponent},
