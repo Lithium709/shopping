@@ -396,7 +396,7 @@ export class TopfilterComponent implements OnInit {
             let navSize: NavigationExtras = {
                 queryParams: this.objectNavigation
             };
-            this.objectNavigation[propertyName] = JSON.stringify(selectedArray).split(' ').join('-');
+            this.objectNavigation[propertyName] =  _.kebabCase(JSON.stringify(selectedArray));
             delete this.objectNavigation['page'];
             this.router.navigate([this.navigateRoute], navSize);
         }else{
