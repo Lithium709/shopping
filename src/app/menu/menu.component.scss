@@ -3,6 +3,33 @@ a:focus, a:hover{
   color: white;
 }
 
+.toggleHeight{
+  display: block;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 300ms ease, visibility 300ms ease, height 400s ease-in;
+  -moz-transition: opacity 300ms ease, visibility 300ms ease, height 400s ease-in;
+  -o-transition: opacity 300ms ease, visibility 300ms ease, height 400s ease-in;
+  transition: opacity 300ms ease, visibility 300ms ease, height 400s ease-in;
+  width: 100%;
+  min-height: 75px;
+  max-height: 550px;
+  overflow-y: hidden;
+}
+
+.toggleHeight.active{
+  opacity: 1;
+  visibility: visible;
+}
+
+.toggleHeight.inactive{
+  visibility: hidden;
+  opacity: 0;
+}
+
+
+
+
 .contCart{
   font-size: 18px;
   position: relative;

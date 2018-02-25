@@ -11,8 +11,8 @@ import { trigger,state,style,transition,animate,keyframes } from '@angular/anima
 @Component({
     selector: 'app-menu',
     templateUrl: './menu.component.html',
-    styleUrls: ['./menu.component.scss'],
-    animations: [
+    styleUrls: ['./menu.component.scss']
+   /* animations: [
         trigger('toggleHeight', [
             state('inactive', style({
                 height: '0',
@@ -30,7 +30,7 @@ import { trigger,state,style,transition,animate,keyframes } from '@angular/anima
             transition('inactive => active', animate('400ms ease-in')),
             transition('active => inactive', animate('400ms ease-out'))
         ])
-    ]
+    ]*/
 })
 
 

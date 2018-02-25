@@ -343,7 +343,8 @@ a.linkHtmlBan:hover{
 }
 .megacollink li {
 	display: block;
-	text-align: center;
+	width: 340px;
+	overflow: hidden;
 	white-space: nowrap;
 	text-align: left;
 }

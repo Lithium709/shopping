@@ -43,21 +43,21 @@
                     <a class="" [class.active]="actmenu == 'news'" (click)="onClickMainMenu('news')">НОВИНИ
                         <span class="pluspasiv"></span>
                     </a>
-                    <app-news class="megamenu" [@toggleHeight]="menuState.news" [id]="1"> </app-news>
+                    <app-news class="megamenu" [class.toggleHeight]="menuState.news" [class.active]="actmenu == 'news'" [id]="1"> </app-news>
                 </li>
 
                 <li class="topLiMainMenu"><a class="" [class.active]="actmenu == 'catalog'" (click)="onClickMainMenu('catalog')">КАТАЛОГ<span class="pluspasiv"></span></a>
-                    <app-catalog  class="megamenu" [@toggleHeight]="menuState.catalog" [id]="2"></app-catalog>
+                    <app-catalog  class="megamenu" [class.toggleHeight]="menuState.catalog" [class.active]="actmenu == 'catalog'" [id]="2"></app-catalog>
                 </li>
 
                 <li class="topLiMainMenu"><a class="" [class.active]="actmenu == 'shops'" (click)="onClickMainMenu('shops')">МАГАЗИНИ<span class="pluspasiv"></span></a>
-                    <app-shops class="megamenu" [@toggleHeight]="menuState.shops" [id]="3"></app-shops>
+                    <app-shops class="megamenu" [class.toggleHeight]="menuState.shops" [class.active]="actmenu == 'shops'" [id]="3"></app-shops>
                 </li>
 
                 <!--[class.active]="rowdown"-->
 
                 <li class="topLiMainMenu"><a class="" [class.active]="actmenu == 'service'" (click)="onClickMainMenu('service')">ПОСЛУГИ<span class="pluspasiv"></span></a>
-                    <app-services class="megamenu" [@toggleHeight]="menuState.service" [id]="4"></app-services>
+                    <app-services class="megamenu" [class.toggleHeight]="menuState.service" [class.active]="actmenu == 'service'" [id]="4"></app-services>
                 </li>
 
                 <li class="right-panel"><a (click)="openCart()"><i class="fa fa-shopping-bag fa-lg" aria-hidden="true"></i>
@@ -70,7 +70,7 @@
 
                 <li class="right-panel"><a (click)="loginClick()"><i class="fa fa-user-o fa-lg" [class.auth]="isAuthenticated()" aria-hidden="true"></i></a></li>
                 <li class="right-panel"><a (click)="onClickMainMenu('search')"><i class="fa fa-search fa-lg" aria-hidden="true"></i></a>
-                    <div class="megamenu" [@toggleHeight]="menuState.search" >
+                    <div class="megamenu" [class.toggleHeight]="menuState.search" [class.active]="actmenu == 'search'">
                         <!-- <form class="topmenusearch">
                              <input [value]="searchText" type="text" (keyup)="search($event)" (input)="searchText = $event.target.value" placeholder="Що ви шукаєте...">
                              <button (click) = "SearchButtonClick()" class="btnsearch">ПОШУК</button>
