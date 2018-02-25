@@ -21,7 +21,8 @@ import { HomeModule } from './home/home.module';
 import { MenuComponentsModule } from "./menu-components/menu-components.module";
 import { ProductModule } from './product/product.module';
 // import { NotFoundComponent } from './not-found/not-found.component';
-// import { contactModule } from './contact/contact.module';
+ import { contactModule } from './contact/contact.module';
+
 import {CabinetModule} from "./cabinet/cabinet.module";
 // import { ElementModule } from './element/element.module';
 import { LoginService } from './login/login.service';
@@ -106,7 +107,7 @@ import {SafeHtmlPipe} from "./lib/pipe/safe-html";
         HomeModule,
         ProductModule,
        //  ElementModule,
-        // contactModule,
+        contactModule,
         SlimLoadingBarModule.forRoot()
     ],
 

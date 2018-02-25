@@ -1,0 +1,237 @@
+<!--<div class="page-header">
+    <breadcumb></breadcumb>
+</div> -->
+
+<!-- Steps section start-->
+
+<app-stepslist></app-stepslist>
+
+<!-- Steps section finish -->
+
+<!-- End Section -->
+<div class="container-page wrap-contact">
+    <div class="box-page">
+        <div class="row ">
+            <div class="col l6 m6 s12 side-contact">
+                <div class="panel">
+                    <h5 class="title-Cl">ВХІД ДЛЯ КЛІЄНТІВ</h5>
+
+                    <form #formLogRef="ngForm" (ngSubmit)="login()">
+                        <!-- Email Start-->
+                        <div class="row">
+                            <div class="col l12 m12 s12">
+                                <mat-form-field>
+                                    <input matInput
+                                           type="email"
+                                           placeholder="Email"
+                                           value=""
+                                           name="email"
+                                           [(ngModel)]="username"
+                                           #emailClRef="ngModel"
+                                           required
+                                           email>
+                                </mat-form-field>
+                                <small class="error" *ngIf="emailClRef.errors?.required && emailClRef.touched">обов'язково до заповнення</small>
+                                <small class="error" *ngIf="emailClRef.errors?.required && emailClRef.dirty">обов'язково до заповнення</small>
+                                <small class="error" *ngIf="emailClRef.errors?.email && emailClRef.dirty">невірний формат</small>
+                            </div>
+
+                        </div>
+                        <!-- E-mail end -->
+                        <!-- Pasword start-->
+                        <div class="row">
+                            <div class="col l12 m12 s12">
+                                <mat-form-field>
+                                    <input matInput
+                                           type="password"
+                                           placeholder="Пароль"
+                                           value=""
+                                           (change)="onEditPass()"
+                                           name="password"
+                                           [(ngModel)]="password"
+                                           #passwRef="ngModel"
+                                           required >
+                                </mat-form-field>
+                                <small class="error" *ngIf="passwRef.errors?.required && passwRef.touched">обов'язково до заповнення</small>
+                                <small class="error"  *ngIf="authenticationError">Не вірний пароль!</small>
+                            </div>
+                        </div>
+                        <!-- Pasword end -->
+                        <div class="row margin-top20">
+                            <div class="col l12 l12 s12">
+                                <button [disabled]="formLogRef.invalid" type="submit" mat-button class="btn btn-primary btn-enterf">УВІЙТИ</button>
+                            </div>
+                        </div>
+                        <!--<a class="rememberPasLink" href="#">згадати пароль</a> -->
+                        <div class="enter-sosial">
+                            <p>Вхід через соціальні мережі: </p>
+                            <!--
+
+                            <a href="#"><i class="fa fa-facebook-official fa-2x" aria-hidden="true"></i></a>
+                                  <a href="#"><i class="fa fa-google fa-2x" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a>
+
+                            -->
+                            <app-social provider="google"></app-social>
+                            <app-social provider="facebook"></app-social>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col l6 m6 s12">
+                <div class="col l12 m12 s12 borTop">
+                    <h5 class="regCliTit">НОВИЙ КЛІЄНТ</h5>
+                </div>
+
+                <!-- Start Form -->
+                <form #formRef="ngForm" (ngSubmit)="register()">
+                    <div class="row">
+                        <div class="col m6 s12">
+                            <mat-form-field>
+                                <input matInput
+                                       type="text"
+                                       placeholder="Ім'я"
+                                       value=""
+                                       name="firstName"
+                                       [(ngModel)]="firstName"
+                                       #firstNameRef="ngModel"
+                                       required>
+                            </mat-form-field>
+                            <small class="error" *ngIf="firstNameRef.errors?.required && firstNameRef.touched">обов'язково до заповнення</small>
+                            <small class="error" *ngIf="firstNameRef.errors?.required && firstNameRef.dirty">обов'язково до заповнення</small>
+                        </div>
+
+                        <div class="col m6 s12">
+                            <mat-form-field>
+                                <input matInput
+                                       type="text"
+                                       placeholder="Прізвище"
+                                       value=""
+                                       name="lastName"
+                                       [(ngModel)]="lastName"
+                                       #lastNameRef="ngModel"
+                                       required>
+                            </mat-form-field>
+                            <small class="error" *ngIf="lastNameRef.errors?.required && lastNameRef.touched">обов'язково до заповнення</small>
+                            <small class="error" *ngIf="lastNameRef.errors?.required && lastNameRef.dirty">обов'язково до заповнення</small>
+                        </div>
+
+
+                        <!-- Mail <div class="col m6 s12">
+                             <mat-form-field>
+                                 <input matInput
+                                     type="email"
+                                     placeholder="Email"
+                                     value=""
+                                     name="email"
+                                     [(ngModel)]="email"
+                                     #emailRef="ngModel"
+                                     required
+                                     email>
+                             </mat-form-field>
+                             <small class="error" *ngIf="emailRef.errors?.required && emailRef.touched">required error</small>
+                             <small class="error" *ngIf="emailRef.errors?.required && emailRef.dirty">required error</small>
+                             <small class="error" *ngIf="emailRef.errors?.email && emailRef.dirty">email not valid</small>
+                         </div>  -->
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <!-- Email Start-->
+                    <div class="row">
+                        <div class="col m6 s12">
+                            <mat-form-field>
+                                <input matInput
+                                       type="email"
+                                       placeholder="Email"
+                                       value=""
+                                       name="email"
+                                       [(ngModel)]="regEmail"
+                                       #emailRef="ngModel"
+                                       required
+                                       email>
+                            </mat-form-field>
+                            <small class="error" *ngIf="emailRef.errors?.required && emailRef.touched">обов'язково до заповнення</small>
+                            <small class="error" *ngIf="emailRef.errors?.required && emailRef.dirty">обов'язково до заповнення</small>
+                            <small class="error" *ngIf="emailRef.errors?.email && emailRef.dirty">невірний формат</small>
+                        </div>
+
+                        <div class="col m6 s12">
+                            <mat-form-field>
+                                <input matInput
+                                       type="number"
+                                       placeholder="Телефон"
+                                       value=""
+                                       name="phone"
+                                       [(ngModel)]="phone"
+                                       #phoneRef="ngModel"
+                                       required
+                                >
+                            </mat-form-field>
+                            <small class="error" *ngIf="phoneRef.errors?.required && phoneRef.touched">обов'язково до заповнення</small>
+                            <small class="error" *ngIf="phoneRef.errors?.required && phoneRef.dirty">обов'язково до заповнення</small>
+                            <small class="error" *ngIf="phoneRef.errors?.email && phoneRef.dirty">невірний формат</small>
+                        </div>
+                    </div>
+                    <!-- E-mail end -->
+                    <!-- Pasword start-->
+                    <div class="row">
+                        <div class="col m6 s12">
+                            <mat-form-field>
+                                <input matInput
+                                       type="password"
+                                       placeholder="Пароль"
+                                       value=""
+                                       name="password"
+                                       [(ngModel)]="regPassword"
+                                       #passwordRef="ngModel"
+                                       required
+                                       minlength=4 maxlength=50
+                                >
+                            </mat-form-field>
+                            <small class="error" *ngIf="passwordRef.errors?.required && passwordRef.touched">обов'язково до заповнення</small>
+                            <small class="error" *ngIf="passwordRef.errors?.required && passwordRef.dirty">обов'язково до заповнення</small>
+                            <small class="error" *ngIf="passwordRef.errors?.minlength">Пароль занадто короткий</small>
+                        </div>
+
+                        <div class="col m6 s12">
+                            <mat-form-field>
+                                <input matInput
+                                       type="password"
+                                       placeholder="Повторіть Пароль"
+                                       value=""
+                                       name="passwordCon"
+                                       [(ngModel)]="regPasswordRepeat"
+                                       #passwordConRef="ngModel"
+                                       required >
+                            </mat-form-field>
+                            <small class="error" *ngIf="passwordConRef.errors?.required && passwordConRef.touched">обов'язково до заповнення</small>
+                            <small class="error" *ngIf="passwordConRef.errors?.required && passwordConRef.dirty">обов'язково до заповнення</small>
+                            <small class="error"  *ngIf="errorUserExists == 'ERROR'">Користувач з таким імейлом вже існує!</small>
+                        </div>
+                    </div>
+                    <!-- Pasword end -->
+
+                    <div class="row margin-top20">
+                        <div class="col l12 l12 s12">
+                            <button [disabled]="formRef.invalid" type="submit" mat-button class="btn btn-primary">ЗАРЕЄСТРУВАТИСЬ</button>
+
+                        </div>
+                    </div>
+                </form>
+                <!-- End Form -->
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Start Map -->
+<!-- <div class="wrap-map">
+    <agm-map [latitude]="lat" [longitude]="lng" [zoomControl]="false" [streetViewControl]="false" [zoom]="15">
+        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+    </agm-map>
+ </div> -->
+<!-- End Map -->

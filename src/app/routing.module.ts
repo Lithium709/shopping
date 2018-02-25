@@ -25,6 +25,7 @@ import {ReturnlistComponent} from "./cabinet/returnlist/returnlist.component";
 import {PersoninfoComponent} from "./cabinet/personinfo/personinfo.component";
 import {PersonSettingsComponent} from "./cabinet/person-settings/person-settings.component";
 
+import { ContactComponent } from './contact/contact.component';
 
 import {NavblogComponent} from "./mblog/navblog/navblog.component";
 import { BlogComponent } from "./blog/blog.component";
@@ -68,6 +69,8 @@ const routes: Routes = [
     { path: 'me', component: PersoninfoComponent},
     { path: 'cabinet/setings', component: PersonSettingsComponent},
 
+
+    { path: 'Login-Show',  component: ContactComponent },
     { path: 'blog/:title', component: BlogComponent},
     { path: 'blog-posts', component: NavblogComponent}
 
