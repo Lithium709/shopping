@@ -46,7 +46,7 @@ import {MatchHeightDirective } from './lib/directive/match-height.directive';
 import { MenuComponent } from './menu/menu.component';
 // import { ToprowComponent } from './toprow/toprow.component';
 import { FooterComponent } from './footer/footer.component';
-// import { LoginDialogComponent } from './login/login.component';
+import { LoginDialogComponent } from './login/login.component';
 // import { FrontSliderComponent } from './front-slider/front-slider.component';
 import {LogisticService} from "./lib/service/logistic.service";
 import { BlogComponent } from './blog/blog.component';
@@ -72,12 +72,13 @@ import {SafeHtmlPipe} from "./lib/pipe/safe-html";
       //  ToprowComponent,
         FooterComponent,
         FooterDirective,
-    /*    LoginDialogComponent,
+    /*
         FrontSliderComponent,
 
         CookieSaverComponent,
         OurServicesComponent,
         SubscribeComponent,*/
+        LoginDialogComponent,
         BlogComponent,
         SafeHtmlPipe
     ],
@@ -110,7 +111,7 @@ import {SafeHtmlPipe} from "./lib/pipe/safe-html";
     ],
 
     entryComponents:[
-        // LoginDialogComponent,
+        LoginDialogComponent,
         FooterComponent, AboutComponent,
         // SubscribeComponent,
         SeotextComponent,
