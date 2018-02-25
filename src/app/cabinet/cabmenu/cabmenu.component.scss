@@ -1,0 +1,57 @@
+
+.cabinetMenuUl{
+  margin-bottom: 30px;
+  border-right: 1px solid whitesmoke;
+}
+
+.cabinetMenuBlock{
+  border-right: 1px solid whitesmoke;
+  color: black;
+  font-size: 15px;
+  height: 2px;
+}
+
+.exit{
+  color: #c19f63;
+  padding-left: 3px;
+  font-size: 15px;
+}
+
+.cabinetmenuLi{
+  padding-bottom:10px;
+}
+
+.userLi{
+  min-height: 30px;
+  display: block;
+  overflow: hidden;
+  padding-left: 3px;
+  margin-right: 30px;
+  color: black;
+  font-size: 15px;
+}
+
+@media only screen and (max-width: 780px) {
+  .cabinetMenuUl{
+    display: inline-flex;
+    overflow-x: scroll;
+    border: 0px;
+    width: 100%;
+    margin-bottom: 0px;
+    margin-top: -30px;
+  }
+  .cabinetmenuLi{
+    padding-left: 3px;
+    padding-right: 3px;
+    margin: 0px;
+    border-right: 1px solid whitesmoke;
+  }
+  .userLi{
+    margin: 0px;
+    padding: 3px;
+  }
+  .exit{
+    margin: 0px;
+    padding: 3px;
+  }
+}

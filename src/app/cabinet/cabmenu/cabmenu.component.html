@@ -1,0 +1,8 @@
+<ul class="cabinetMenuUl">
+  <li class="cabinetmenuLi"><a *ngIf="!isCartEmpty" routerLink="/shipping" class="userLi">Відкриті замовлення</a></li>
+  <li class="cabinetmenuLi"><a routerLink="/order-list" class="userLi">Оформленні замовлення</a></li>
+  <li class="cabinetmenuLi"><a routerLink="/returnlist" class="userLi">Повернення</a></li>
+  <li class="cabinetmenuLi"><a routerLink="/me" class="userLi">Мої данні</a></li>
+  <li class="cabinetmenuLi"><a routerLink="/cabinet/setings" class="userLi">Налаштування</a></li>
+  <li class="cabinetmenuLi"><a class="exit" (click)="logout()">Вихід</a></li>
+</ul>

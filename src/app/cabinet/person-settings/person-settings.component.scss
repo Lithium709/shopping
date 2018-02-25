@@ -1,0 +1,58 @@
+
+.order-list-table{
+  margin-top: 80px;
+  margin-bottom: 30px;
+  min-height: 300px;
+  display: block;
+  padding: 10px;
+  width: 100%;
+}
+
+.returnOrder{
+  margin-top: 0px;
+}
+
+.container-fluid{
+  margin: 0px;
+  padding: 0px;
+}
+.orderList-page{
+  margin-top: 50px;
+  background-color: white;
+  border-bottom: 1px solid #eee;
+  height: 50px;
+  width: 100%;
+  display: inline-flex;
+}
+
+.chPas{
+  margin-top: 0px;
+  display: inline-grid;
+}
+
+label{
+  color: #183051;
+  font-size: 15px;
+  font-weight: 500;
+  margin-top: 5px;
+}
+
+input{
+  width: 250px;
+  height: 40px;
+  border: 1px solid  #c19f63;
+}
+
+button{
+  background-color: #183051;
+  border: 0px;
+  height: 40px;
+  margin-top: 5px;
+  color: white;
+}
+
+@media only screen and (max-width: 780px) {
+  .order-list-table{
+    padding: 0px;
+  }
+}

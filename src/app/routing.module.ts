@@ -18,6 +18,9 @@ import { ShippingComponent } from './product/shipping/shipping.component';
 import { ReceiptComponent } from './product/receipt/receipt.component';
 import { WishlistComponent } from './product/wishlist/wishlist.component';
 
+import { OpenorderComponent} from "./cabinet/openorder/openorder.component";
+import { OrderListComponent } from "./cabinet/order-list/order-list.component";
+
 import {NavblogComponent} from "./mblog/navblog/navblog.component";
 import { BlogComponent } from "./blog/blog.component";
 // ELements
@@ -27,6 +30,7 @@ const routes: Routes = [
     // { path: '', redirectTo: '', pathMatch: 'full' },
     { path: '',  component: Home1Component, pathMatch: 'full' },
     { path: 'catalog', component: product1Component},
+    { path: 'shipping', component: OpenorderComponent },
     { path: 'product',  component: DashboardProdut,
         children : [
             { path: ':detail', component: DetailProductComponent },
@@ -53,6 +57,8 @@ const routes: Routes = [
       ]  
     },
     */
+    { path: 'order-list', component: OrderListComponent},
+
     { path: 'blog/:title', component: BlogComponent},
     { path: 'blog-posts', component: NavblogComponent}
 

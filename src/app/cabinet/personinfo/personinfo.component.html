@@ -1,0 +1,32 @@
+<div class="container-fluid">
+  <div class="order-list-table">
+    <div class="row">
+      <div class=" col s12 m2 l2 cabinetMenuBlock">
+        <app-cabmenu></app-cabmenu>
+      </div>
+      <div class="col s12 m10 l10 returnOrder">
+        <!-- Order table start -->
+        <h4>Персональна інформація</h4>
+        <!-- Order table finish -->
+        <form  #formRef="ngForm" (ngSubmit)="onSave(formRef)">
+        <table>
+          <thead><th></th><th></th></thead>
+          <tbody *ngIf="accountInfo">
+            <tr>
+              <td>Ім'я</td><td><input type="text" name="firstName" [(ngModel)]="accountInfo.firstName"/></td>
+            </tr>
+            <tr>
+              <td>Прізвище</td><td><input type="text" name="lastName" [(ngModel)]="accountInfo.lastName"/></td>
+            </tr>
+              <td>e-mail</td><td>{{accountInfo.email}}</td>
+            <tr>
+              <td>Телефон</td><td><input type="text" name="phone" [(ngModel)]="accountInfo.phone"/></td>
+            </tr>
+            <button type="submit" *ngIf="formRef.valid" >Зберегти</button>
+          </tbody>
+        </table>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

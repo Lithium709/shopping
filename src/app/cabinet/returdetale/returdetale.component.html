@@ -1,0 +1,66 @@
+<div class="container-fluid">
+
+  <div class="order-list-table">
+
+    <div class="row">
+      <div class=" col s12 m2 l2 cabinetMenuBlock">
+        <app-cabmenu></app-cabmenu>
+      </div>
+
+      <div class="col s12 m10 l10 returnOrder">
+        <!-- Order table start -->
+        <div class="retbread">
+          <a>Повернення</a> / Створити повернення
+        </div>
+        <table class="table table-striped">
+          <thead>
+          <tr class="row-name" >
+            <th>№ Замовлення</th>
+            <th>Код товару</th>
+            <th>Назва товару</th>
+            <th>Дата створення</th>
+            <th>Кількість</th>
+            <th>Ціна</th>
+          </tr>
+          </thead>
+          <tbody *ngIf="returnOrder?.lines?.length>0">
+          <tr *ngFor="let line of returnOrder.lines" class="row-content">
+            <td>№ {{returnOrder?.id}}</td>
+            <td>{{line.article}}</td>
+            <td>{{line.product.nameUA}}</td>
+            <td>{{returnOrder.orderDate}}</td>
+            <td>{{line.quantity}}</td>
+            <td>{{line.price}}</td>
+          </tr>
+          </tbody>
+        </table>
+        <!-- Order table finish -->
+      </div>
+
+      <!-- Field -->
+      <div class="col s9 m10 l10">
+        <mat-form-field>
+          <input matInput placeholder="ПРИЧИНА ПОВЕРНЕННЯ ТОВАРУ" [(ngModel)]="trackNumber">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="№ КАРТИ ДЛЯ ПОВЕРНЕННЯ" [(ngModel)]="fullName">
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="Серія № Паспорту" [(ngModel)]="personalInfo">
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="НОМЕР ТТН" [(ngModel)]="trackNumber">
+        </mat-form-field>
+        <a routerLink="/">Правила повернення товару в інтернет-магазині</a>
+        <br/>
+        <div class="btn-group btnright" role="group">
+          <a (click)="saveReturn($event)" type="button" class="btn btn-default">Створити повернення</a>
+        </div>
+
+      </div>
+      <!-- Field finish -->
+    </div>
+  </div>
+</div>

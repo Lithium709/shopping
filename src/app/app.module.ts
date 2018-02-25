@@ -22,9 +22,9 @@ import { MenuComponentsModule } from "./menu-components/menu-components.module";
 import { ProductModule } from './product/product.module';
 // import { NotFoundComponent } from './not-found/not-found.component';
 // import { contactModule } from './contact/contact.module';
-// import {CabinetModule} from "./cabinet/cabinet.module";
+import {CabinetModule} from "./cabinet/cabinet.module";
 // import { ElementModule } from './element/element.module';
-// import { LoginService } from './login/login.service';
+import { LoginService } from './login/login.service';
 import { Principal } from './auth/principal.service';
 import { AccountService } from './auth/account.service';
 import { AuthServerProvider } from './auth/auth-jwt.service';
@@ -101,7 +101,7 @@ import {SafeHtmlPipe} from "./lib/pipe/safe-html";
         MatMenuModule,
         MatExpansionModule,
         AppRoutingModule,
-        // CabinetModule,
+        CabinetModule,
         HomeModule,
         ProductModule,
        //  ElementModule,
@@ -119,7 +119,7 @@ import {SafeHtmlPipe} from "./lib/pipe/safe-html";
     ],
 
     providers: [
-        // LoginService,
+        LoginService,
         Principal, AccountService, LogisticService,
         StateStorageService,
         AuthServerProvider,

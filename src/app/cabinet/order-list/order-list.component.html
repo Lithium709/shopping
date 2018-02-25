@@ -1,0 +1,185 @@
+
+<div class="container-fluid">
+
+    <div class="order-list-table">
+
+     <div class="row">
+    <div class=" col s12 m2 l2 cabinetMenuBlock">
+      <app-cabmenu></app-cabmenu>
+    </div>
+
+       <div class="col s12 m10 l10">
+           <!-- Order table start -->
+     <table class="table table-striped">
+         <thead>
+         <tr class="row-name" >
+             <!--<th>Check/UnCheck</th>-->
+             <th>Стан замовлення</th>
+             <th>№ Замовлення</th>
+             <th class="desc">Дата створення</th>
+             <th class="desc">Дата зміни статусу</th>
+             <th>Загальна ціна</th>
+             <th>Докладніше</th>
+         </tr>
+         </thead>
+         <tbody>
+         <tr class="row-content" *ngFor="let order of orders">
+            <!-- <td class="check"> <label><input type="checkbox" value=""></label></td> -->
+             <td> <span class="label label-default"> {{order.state}} </span></td>
+             <td>{{order.id}}</td>
+             <td class="desc">{{order.orderDate}}</td>
+             <td class="desc"></td>
+             <td></td>
+             <td>
+                 <button data-toggle="modal" data-target="#squarespaceModal" (click)="showDetail(order)"  class="btn btn-primary center-block"><i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i></button>
+             </td>
+         </tr>
+         </tbody>
+         </table>
+           <!-- Order table finish -->
+    </div>
+    </div>
+
+
+        <!-- line modal start-->
+        <div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" ><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="lineModalLabel">№ {{activeOrder?.id}} |<span> статус: {{activeOrder?.state}} </span></h4>
+                    </div>
+                    <div class="modal-body">
+                        <!-- content goes here -->
+
+
+                        <!-- orderDetaleTable start -->
+                        <table class="table table-striped">
+                            <thead>
+                            <tr class="row-name" >
+                                <th class="desc">Код товару</th>
+                                <th class="desc">Кількість</th>
+                                <th>Назва</th>
+                                <th class="desc">Розмір</th>
+                                <th>Ціна</th>
+                                <th>Повернути</th>
+                            </tr>
+                            </thead>
+                            <tbody  *ngIf="activeOrder">
+                            <tr class="row-content" *ngFor="let line of activeOrder.lines">
+                                <td class="desc"><a [routerLink]="'/product/' + line?.product?.slug">{{line.article}}</a></td>
+                                <td class="desc">{{line.quantity}}</td>
+                                <td>{{line?.product?.nameUA}}</td>
+                                <td class="desc"></td>
+                                <td>{{line.price}}</td>
+
+                                <td class="check">
+                                    <label>
+                                        <input *ngIf="!line.quantityToReturn" type="checkbox" [(ngModel)]="line.toReturn">
+                                    </label>
+                                </td>
+                            </tr>
+                            <div class="btn-group btnright" role="group">
+                                <a (click)="closeReturn($event)" type="button" class="btn btn-default" data-dismiss="modal">ПОВЕРНУТИ</a>
+                            </div>
+                            </tbody>
+                        </table>
+                        <!-- orderDetaleTable finish -->
+
+                        <div *ngIf="activeOrder" class="orderDelivInfo">
+                            <h5>Інформація про замовлення:</h5>
+                            <div class="row">
+                                <div class="col s4 m3 l3">
+                                   <p> <strong>Дані покупця: </strong></p>
+                                </div>
+                                <div class="col s8 m9 l9">
+                                    {{activeOrder.buyer}}<br>
+                                    {{activeOrder.phone}}<br>
+                                    {{activeOrder.email}}
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col s4 m3 l3">
+                                    <p> <strong>Спосіб доставки: </strong></p>
+                                </div>
+                                <div class="col s8 m9 l9">
+                                    {{ activeOrder.warehouse? 'Забрати у відділенні Нової Пошти':activeOrder.street?"Доставка кур'єром":'Самовивіз'}}
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col s4 m3 l3">
+                                    <p> <strong>Aдреса доставки: </strong></p>
+                                </div>
+                                <div class="col s8 m9 l9">
+                                    {{activeOrder.area + " обл., м. " + activeOrder.city + "."}}
+                                    {{activeOrder.warehouse || activeOrder.street + ', ' + activeOrder.house + ', ' + activeOrder.flat || 'Самовивіз'}}
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col s4 m3 l3">
+                                    <p> <strong>Спосіб оплати: </strong></p>
+                                </div>
+                                <div class="col s8 m9 l9">
+                                   {{activeOrder.paid?'Передплата':'Накладний платіж' }}
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                  <!--  <div class="modal-footer">
+                        <div class="btn-group btn-group-justified" role="group" aria-label="group button">
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-default" data-dismiss="modal"  role="button">Close</button>
+                            </div>
+                            <div class="btn-group btn-delete hidden" role="group">
+                                <button type="button" id="delImage" class="btn btn-default btn-hover-red" data-dismiss="modal"  role="button">Delete</button>
+                            </div>
+                            <div class="btn-group" role="group">
+                                <button type="button" id="saveImage" class="btn btn-default btn-hover-green" data-action="save" role="button">Save</button>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        <!-- line modal finish-->
+
+  </div>
+</div>
+
+   <!-- <div class="col s12 m12">
+
+      <expansion-panels-container>
+        <expansion-panel (onCancel)='resetForm()' (onSubmit)='saveForm()'>
+          <expansion-panel-title>
+            Title
+          </expansion-panel-title>
+
+          <expansion-panel-description-hidden>
+            Description when hidden
+          </expansion-panel-description-hidden>
+
+          <expansion-panel-description-toggled>
+            Description when toggled
+          </expansion-panel-description-toggled>
+
+          <expansion-panel-content>
+            Content
+          </expansion-panel-content>
+
+          <expansion-panel-buttons>
+            <button (click)='pancel.cancel()'>Cancel</button>
+            <button (click)='pancel.submit()'>Submit</button>
+          </expansion-panel-buttons>
+        </expansion-panel>
+
+      </expansion-panels-container>
+
+    </div>-->
+
+
+
