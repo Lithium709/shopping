@@ -1,0 +1,68 @@
+
+.blogPost {
+  padding-top: 80px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.data{
+  color: #7d7d7d;
+  font-size: 12px;
+  float: right;
+  padding-top: 10px;
+}
+
+.blogPost-Img{
+  width: 100%;
+}
+
+.shortDescription{
+  padding-top: 30px;
+  font-size: 18px;
+  color: #7d7d7d;
+}
+
+.longDescription{
+
+}
+
+@media only screen and (max-width: 780px) {
+
+  h3{
+    font-size: 21px;
+    line-height: 25px;
+  }
+
+  img{
+    object-fit: cover;
+    width: 380px;
+    height: 200px;
+  }
+
+  img.fr-fic.fr-dib{
+    object-fit: cover;
+    width: 380px;
+    height: 200px;
+  }
+
+  .shortDescription{
+    padding-top: 10px;
+    font-size: 14px;
+  }
+
+  .blogPost{
+    padding-top: 65px;
+    padding-left: 3px;
+    padding-right: 3px;
+  }
+
+  .cBlock{
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .longDescription{
+
+  }
+}
+

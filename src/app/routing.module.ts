@@ -17,6 +17,9 @@ import { ShippingComponent } from './product/shipping/shipping.component';
 
 import { ReceiptComponent } from './product/receipt/receipt.component';
 import { WishlistComponent } from './product/wishlist/wishlist.component';
+
+import {NavblogComponent} from "./mblog/navblog/navblog.component";
+import { BlogComponent } from "./blog/blog.component";
 // ELements
 
 
@@ -50,6 +53,9 @@ const routes: Routes = [
       ]  
     },
     */
+    { path: 'blog/:title', component: BlogComponent},
+    { path: 'blog-posts', component: NavblogComponent}
+
 ];
 
 @NgModule({

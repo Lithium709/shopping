@@ -1,0 +1,42 @@
+<!--<div class="container-fluid">
+  <div class="well articleBlock">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="pull-left col-md-4 col-xs-12 thumb-contenido">
+        <img class="center-block img-responsive" src="{{blogPost?.imageLink}}" />
+        </div>
+        <div class="">
+          <h1  class="hidden-xs hidden-sm">{{blogPost.title}}Title</h1>
+          <hr>
+          <h5>{{blogPost?.shortDescription}}Short description here</h5>
+          <hr>
+          <div [innerHTML]=blogPost?.longDescription class="text-justify">
+           <p>{{blogPost?.longDescription}}</p>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div> -->
+
+<div class="container-blogPost" *ngIf="blogPost">
+    <div class="blogPost">
+        <div class="row">
+            <div class="col-md-12 cBlock">
+                <h3>{{blogPost?.title}}</h3>
+            </div>
+           <!-- <div class="col-md-3">
+                <p class="data">{{blogPost?.date}}</p>
+            </div> -->
+            <div class="col-md-12 cBlock">
+                <img class="blogPost-Img" src="{{blogPost?.imageLink}}">
+            </div>
+            <div class="col-md-12 cBlock">
+                <h5 class="shortDescription">{{blogPost?.shortDescription}}</h5>
+            </div>
+            <div [innerHTML]="blogPost?.longDescription | safeHtml" class="col-md-12 cBlock longDescription">
+
+            </div>
+        </div>
+    </div>
+</div>

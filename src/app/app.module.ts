@@ -35,7 +35,7 @@ import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import { Register } from  "./auth/register.service";
 import {CSRFService} from "./auth/csrf.service";
 // import {MstoresModule} from "./mstores/mstores.module";
-// import {MblogModule} from "./mblog/mblog.module";
+import { MblogModule } from "./mblog/mblog.module";
 
 // Routing MOdule
 import { AppRoutingModule } from './routing.module';
@@ -49,7 +49,7 @@ import { FooterComponent } from './footer/footer.component';
 // import { LoginDialogComponent } from './login/login.component';
 // import { FrontSliderComponent } from './front-slider/front-slider.component';
 import {LogisticService} from "./lib/service/logistic.service";
-// import { BlogComponent } from './blog/blog.component';
+import { BlogComponent } from './blog/blog.component';
 import {SocialService} from "./social/social.service";
 // import { CookieSaverComponent } from './cookie-saver/cookie-saver.component';
 // import { OurServicesComponent } from './our-services/our-services.component';
@@ -74,10 +74,11 @@ import {SafeHtmlPipe} from "./lib/pipe/safe-html";
         FooterDirective,
     /*    LoginDialogComponent,
         FrontSliderComponent,
-        BlogComponent,
+
         CookieSaverComponent,
         OurServicesComponent,
         SubscribeComponent,*/
+        BlogComponent,
         SafeHtmlPipe
     ],
     imports: [
@@ -92,6 +93,7 @@ import {SafeHtmlPipe} from "./lib/pipe/safe-html";
         ReactiveFormsModule,
         HttpClientModule,
         BrowserAnimationsModule,
+        MblogModule,
         MatDialogModule,
         MatProgressSpinnerModule,
         MatIconModule,

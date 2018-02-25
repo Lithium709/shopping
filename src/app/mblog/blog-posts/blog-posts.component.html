@@ -1,0 +1,10 @@
+<div class="col s12 m8 l8 blogPrev">
+  <div class="list-bloks">
+    <div *ngFor="let blogPost of blogPosts" class="col s12 m6 l6 postblok ">
+      <a routerLink="/blog/{{blogPost.title.split(' ').join('-')}}"> <img class="blogpostsImg" src="{{blogPost.imageLink }}"/></a>
+      <h5 class="BlogPostTitle">{{blogPost.title}}</h5>
+      <p class="BlogPostShortDescription">{{blogPost.shortDescription}}</p>
+      <a class="more" routerLink="/blog/{{blogPost.title.split(' ').join('-')}}">Докладніше <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+    </div>
+  </div>
+</div>

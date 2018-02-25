@@ -1,0 +1,28 @@
+<div class="container-fluid">
+    <div class="row blog-posts">
+        <h4 class="bcatname">{{currentCategory?.name || "Останні новини"}}</h4>
+        <app-blog-posts [blogPosts] = "blogPostsByCategory" ></app-blog-posts>
+        <div class="col s12 m4 l4 ">
+            <div class="listPrev">
+                <nav class="BlogCategories">
+                    <h5>Категорії блогу</h5>
+                    <ul>
+                        <li *ngFor="let blogCategory of blogCategories">
+                            <a (click)="onBlogCategoryClick(blogCategory)">{{blogCategory.name}}</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="BlogTitlesRight">
+                <nav>
+                    <h5>ЗАГОЛОВКИ</h5>
+                    <ul>
+                        <li *ngFor="let blogPost of blogPosts">
+                            <a routerLink="/blog/{{blogPost.title.split(' ').join('-')}}">{{blogPost.title}}</a>
+                        </li>
+                    </ul>
+                </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
