@@ -923,7 +923,7 @@ img.serchIcoM{
 
 .megacolimage {
 	width: 100% !important;
-	padding: 0% 5% !important;
+	padding: 0% 2% !important;
 	display: none;
 	background-color: white;
 }
@@ -931,8 +931,8 @@ img.serchIcoM{
 	display: block;
 }
 .title{
-	border-top: 1px solid #c19f63;
-	border-bottom: 1px solid #c19f63;
+	/*border-top: 1px solid #c19f63;
+	border-bottom: 1px solid #c19f63;*/
 	font-size: 14px;
 	padding-left: 3px;
 	padding-right: 3px;
@@ -1269,13 +1269,14 @@ img.serchIcoM{
 }
 
 .wsmenu-list li:hover .megamenu {
-	display: none;
+	/*display: none;*/
 	position: relative !important;
 	top: 0px;
 }
 .megamenu .title {
 	color: #666666;
-	font-size: 15px !important;
+	font-size: 12px !important;
+	font-weight: bold;
 	padding: 10px 8px 10px 0px;
 }
 .halfdiv .title {

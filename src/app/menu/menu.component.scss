@@ -94,4 +94,13 @@ i.fa.auth{
   .callusicon:focus, callusicon:hover{
     color: white;
   }
+
+  .toggleHeight{
+    display: none;
+  }
+
+  .toggleHeight.active{
+    display: block;
+  }
+
 }
