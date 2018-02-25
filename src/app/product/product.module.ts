@@ -25,7 +25,7 @@ import {
 } from '@angular/material';
 
 
-// import 'hammerjs';
+import 'hammerjs';
 import { CustomFormsModule } from 'ng2-validation';
 import { Ng2StickyModule} from "ng2-sticky";
 
@@ -51,14 +51,14 @@ import { CartComponent } from './cart/cart.component';
 import { ShippingComponent } from './shipping/shipping.component';
 import { ReceiptComponent } from './receipt/receipt.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
-import { ShopCookieService } from '../lib/service/cookie.service';
+import { CookieService } from '../lib/service/cookie.service';
 import { TopfilterComponent } from './topfilter/topfilter.component';
 import { StepslistComponent } from './stepslist/stepslist.component';
 import { ProdslideComponent } from './prodslide/prodslide.component';
 import {ReactiveFormsModule} from "@angular/forms";
 
 import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
-// import 'hammerjs';
+import 'hammerjs';
 import { ProdgalleryComponent } from './prodgallery/prodgallery.component';
 
 @NgModule({
@@ -105,7 +105,7 @@ import { ProdgalleryComponent } from './prodgallery/prodgallery.component';
         ProdslideComponent
 
     ],
-    providers: [ShopCookieService, {
+    providers: [CookieService, {
         provide: HAMMER_GESTURE_CONFIG,
         useClass: HammerGestureConfig
     }],

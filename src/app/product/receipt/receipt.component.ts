@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ShopCookieService } from '../../lib/service/cookie.service';
+import { CookieService } from '../../lib/service/cookie.service';
 
 @Component({
   selector: 'app-receipt',
@@ -11,7 +11,7 @@ export class ReceiptComponent implements OnInit {
 
     constructor(
       private router: Router,
-      private cookie: ShopCookieService
+      private cookie: CookieService
     ){}
 
     ngOnInit() {

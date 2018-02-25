@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
-import { ShopCookieService } from '../../lib/service/cookie.service';
+import { CookieService } from '../../lib/service/cookie.service';
 import { Router } from '@angular/router';
 import * as _ from "lodash";
 import {productService} from "../../lib/service/product.service";
@@ -68,7 +68,7 @@ export class ShippingComponent implements OnInit {
 
     constructor(
         private router: Router,
-        private cookie: ShopCookieService,
+        private cookie: CookieService,
         public snackBar: MatSnackBar,
         fb: FormBuilder,
         private productService: productService,

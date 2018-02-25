@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { CookiesService } from '@ngx-utils/cookies';
+import { Cookie } from 'ng2-cookies';
 import * as _ from "lodash";
 
 @Injectable()
-export class ShopCookieService {
+export class CookieService {
     public productsOrder = [];
     private arrWishList = [];
     private arrCompare = [];
@@ -14,30 +14,30 @@ export class ShopCookieService {
 
     cookies: Object;
     keys: Array<string>;
-    
-    constructor(private  Cookie : CookiesService) {
+
+    constructor() {
         this.updateCookie();
-        this.initCookie();  
+        this.initCookie();
     }
 
     // Update Cookie
     updateCookie() {
-        this.cookies = this.Cookie.getAll();
+        this.cookies = Cookie.getAll();
         this.keys = Object.keys(this.cookies);
     }
 
     // Add Cookie
     addCookie(cName: string, cValue: string) {
-        this.Cookie.put(cName, cValue);
+        Cookie.set(cName, cValue);
         this.updateCookie();
-        this.initCookie();          
+        this.initCookie();
     }
 
     // Remove Cookie
     removeCookie(name: string) {
-        this.Cookie.remove(name);
+        Cookie.delete(name);
         this.updateCookie();
-        this.initCookie(); 
+        this.initCookie();
     }
 
     // Initialize Cookie
@@ -53,6 +53,44 @@ export class ShopCookieService {
                 _.map(productsCart, (x)=>{
                     return this.productsOrder.push(x);
                 });
+            }
+
+            // Wish List
+            if(this.cookies['wishlist'] != undefined){
+                _.uniq(this.cookies['wishlist']);
+                let wishList = JSON.parse(this.cookies['wishlist']);
+                _.map(wishList, (x)=>{
+                    this.arrWishList.push(x);
+                });
+            }
+
+            // Compare
+            if(this.cookies['compare'] != undefined){
+                _.uniq(this.cookies['compare']);
+                let compareList = JSON.parse(this.cookies['compare']);
+                _.map(compareList, (x)=>{
+                    this.arrCompare.push(x);
+                });
+            }
+
+            // Promo
+            if(this.cookies['promo'] != undefined){
+                this.promo = this.cookies['promo'];
+            }
+
+            // Subtotal
+            if(this.cookies['subtotal'] != undefined){
+                this.subtotal = Number(this.cookies['subtotal']);
+            }
+
+            // Promo Value
+            if(this.cookies['promoValue'] != undefined){
+                this.promoValue = Number(this.cookies['promoValue']);
+            }
+
+            // Payed
+            if(this.cookies['payed'] != undefined){
+                this.payed = this.cookies['payed'];
             }
         }
     }

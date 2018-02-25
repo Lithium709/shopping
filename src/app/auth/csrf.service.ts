@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import {ShopCookieService} from '../lib/service/cookie.service';
+import {CookieService} from '../lib/service/cookie.service';
 
 @Injectable()
 export class CSRFService {
 
-    constructor(private cookieService: ShopCookieService) {}
+    constructor(private cookieService: CookieService) {}
 
     getCSRF(name?: string) {
         name = `${name ? name : 'XSRF-TOKEN'}`;

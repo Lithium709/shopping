@@ -1,7 +1,7 @@
 import {ComponentFixture, TestBed} from "@angular/core/testing";
 import {CartComponent} from "./cart.component";
 import {async} from "@angular/core/testing";
-import {ShopCookieService} from "../../lib/service/cookie.service";
+import {CookieService} from "../../lib/service/cookie.service";
 import {MatSnackBarModule} from "@angular/material";
 import {FormsModule} from "@angular/forms";
 import {Router, RouterModule, ActivatedRoute} from "@angular/router";
@@ -11,8 +11,8 @@ import {NgModule} from "@angular/core";
 @NgModule({
     declarations:[CartComponent],
     imports:[MatSnackBarModule, FormsModule, RouterModule, RouterTestingModule],
-    providers:[ShopCookieService]})
-class MockCookieService extends ShopCookieService {
+    providers:[CookieService]})
+class MockCookieService extends CookieService {
 
     public productOrder = [{
         id: 14,
@@ -33,7 +33,7 @@ describe('Cart component',()=>{
     beforeEach(async(()=>{
         TestBed.configureTestingModule({declarations:[CartComponent],
             imports: [MatSnackBarModule, FormsModule, RouterModule, RouterTestingModule],
-            providers: [{provide: ShopCookieService, useClass:MockCookieService},
+            providers: [{provide: CookieService, useClass:MockCookieService},
                 { provide: Router, useValue:{}},
                 { provide: ActivatedRoute, useValue:{}
                 }] }).compileComponents();

@@ -14,7 +14,7 @@ import { Product } from '../../lib/service/data/product';
 import { HttpClientModule , HttpClient } from "@angular/common/http";
 import {PRODUCTS} from '../../lib/service/products';
 import { of } from 'rxjs/observable/of';
-import { ShopCookieService } from '../../lib/service/cookie.service';
+import { CookieService } from '../../lib/service/cookie.service';
 @NgModule({
     declarations: [DetailProductComponent, RatingComponent,productFilterPipe ],
     imports: [MatProgressSpinnerModule,
@@ -26,7 +26,7 @@ import { ShopCookieService } from '../../lib/service/cookie.service';
         RouterModule,
         HttpClientModule,
     ],
-    providers: [productService, HttpClientModule, MatSnackBar, ActivatedRoute, ShopCookieService]
+    providers: [productService, HttpClientModule, MatSnackBar, ActivatedRoute, CookieService]
 })
 
 class MockProductService extends productService {
@@ -41,7 +41,7 @@ class MockProductService extends productService {
 
 }
 
-class MockCookieService extends ShopCookieService {
+class MockCookieService extends CookieService {
 
  public productOrder = [{
                     id: 14,
@@ -67,7 +67,7 @@ describe('Product-Detail-Component', () => {
     let dList: DebugElement[];
     let itemProductTitle:      HTMLElement;
     let el:      HTMLElement;
-    let cookie , c: ShopCookieService;
+    let cookie , c: CookieService;
     var psSpy : jasmine.Spy;
     let pService : productService;
     beforeEach(async(() => {
@@ -81,7 +81,7 @@ describe('Product-Detail-Component', () => {
                         params: Observable.of({detail: 'AF-10-62-30'})
                     }},
                     MatSnackBar,
-                    { provide : ShopCookieService, useClass:MockCookieService}
+                    { provide : CookieService, useClass:MockCookieService}
 
                 ]
             }
@@ -91,7 +91,7 @@ describe('Product-Detail-Component', () => {
             comp = fixture.componentInstance;
             pService = fixture.debugElement.injector.get(productService);
             psSpy = spyOn(pService, 'getSlugProduct').and.callThrough();
-            cookie = fixture.debugElement.injector.get(ShopCookieService);
+            cookie = fixture.debugElement.injector.get(CookieService);
             let productsOrder = cookie['productsOrder'];
             productsOrder.quantity = 0;
             //cookie.removeCookie('products');
@@ -193,7 +193,7 @@ describe('Product-Detail-Component few options', () => {
     let dList: DebugElement[];
     let itemProductTitle:      HTMLElement;
     let el:      HTMLElement;
-    let cookie , c: ShopCookieService;
+    let cookie , c: CookieService;
     let psSpy : jasmine.Spy;
     let addCartSpy: jasmine.Spy;
     let pService : productService;
@@ -208,7 +208,7 @@ describe('Product-Detail-Component few options', () => {
                             params: Observable.of({detail: 'AF-15-12-30'})
                         }},
                     MatSnackBar,
-                    { provide : ShopCookieService, useClass:MockCookieService}
+                    { provide : CookieService, useClass:MockCookieService}
 
                 ]
             }
@@ -219,7 +219,7 @@ describe('Product-Detail-Component few options', () => {
             pService = fixture.debugElement.injector.get(productService);
             psSpy = spyOn(pService, 'getSlugProduct').and.callThrough();
             addCartSpy = spyOn(comp, 'addCart').and.callThrough();
-            cookie = fixture.debugElement.injector.get(ShopCookieService);
+            cookie = fixture.debugElement.injector.get(CookieService);
             let productsOrder = cookie['productsOrder'];
             productsOrder.quantity = 0;
             //cookie.removeCookie('products');

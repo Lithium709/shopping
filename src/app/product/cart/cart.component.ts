@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialogRef, MatSnackBar} from '@angular/material';
-import { ShopCookieService } from '../../lib/service/cookie.service';
+import { CookieService } from '../../lib/service/cookie.service';
 import * as _ from "lodash";
 import {Principal} from "../../auth/principal.service";
 import {Router} from "@angular/router";
@@ -21,7 +21,7 @@ export class CartComponent implements OnInit {
 
     constructor(
         private productService: productService,
-        private cookie: ShopCookieService,
+        private cookie: CookieService,
         public snackBar: MatSnackBar,
         private principal: Principal,
         private router: Router,

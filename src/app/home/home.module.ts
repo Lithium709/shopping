@@ -17,7 +17,7 @@ import {
     MatButtonModule
 } from '@angular/material';
 
-// import 'hammerjs';
+import 'hammerjs';
 
 // Anguushop Lib
 import { libModule } from '../lib/lib.module';

@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild, ElementRef, PLATFORM_ID, Inject} from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import * as _ from "lodash";
-import { ShopCookieService } from '../../lib/service/cookie.service';
+import { CookieService } from '../../lib/service/cookie.service';
 
 import { Cookie } from 'ng2-cookies';
 import { MatSnackBar } from '@angular/material';

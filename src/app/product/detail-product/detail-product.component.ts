@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef, Inject } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import * as _ from "lodash";
-import { ShopCookieService } from '../../lib/service/cookie.service';
+import { CookieService } from '../../lib/service/cookie.service';
 import { PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser, isPlatformServer } from '@angular/common';
 import { Cookie } from 'ng2-cookies';
@@ -43,7 +43,7 @@ export class DetailProductComponent implements OnInit {
         private activeRoute: ActivatedRoute,
         private productService: productService,
         public snackBar: MatSnackBar,
-        private cookie: ShopCookieService,
+        private cookie: CookieService,
         @Inject(PLATFORM_ID) private platformId: Object
     ){
         this.productsOrder = this.cookie['productsOrder'];

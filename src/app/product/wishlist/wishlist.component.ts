@@ -4,7 +4,7 @@ import * as _ from "lodash";
 
 import { MatSnackBar } from '@angular/material';
 
-import { ShopCookieService } from '../../lib/service/cookie.service';
+import { CookieService } from '../../lib/service/cookie.service';
 
 @Component({
   selector: 'app-wishlist',
@@ -17,7 +17,7 @@ export class WishlistComponent implements OnInit {
     constructor(
       private router: Router,
       public snackBar: MatSnackBar,
-      private cookie: ShopCookieService
+      private cookie: CookieService
     ){}
 
     ngOnInit() {

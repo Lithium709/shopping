@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { productService } from '../lib/service/product.service';
-import { ShopCookieService } from '../lib/service/cookie.service';
+import { CookieService } from '../lib/service/cookie.service';
 import {Router} from '@angular/router';
 import {MatDialog} from "@angular/material";
 import {Principal} from "../auth/principal.service";
@@ -45,7 +45,7 @@ export class MenuComponent implements OnInit {
     private  dialogResult = "";
     public imageUrl: String;
     constructor(private productService: productService,
-                private cookie: ShopCookieService,
+                private cookie: CookieService,
                 private router: Router,
                 public dialog: MatDialog,
                 private principal: Principal
