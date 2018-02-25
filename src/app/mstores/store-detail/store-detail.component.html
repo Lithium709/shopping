@@ -1,0 +1,37 @@
+<div class="container-stores">
+    <div class="stores">
+        <div class="row">
+            <!-- Detale Stores start -->
+            <div *ngIf="location">
+                <div class="col-md-12 storDetale">
+                    <div class="locator">
+                        <a routerLink="/stores/{{cityName.split(' ').join('-')}}" class="backToStors">
+                            <i class="fa fa-chevron-left"></i> назад до списку магазинів</a>
+                        <ul>
+                            <h5 class="h5adressShopDetale">АДРЕСА</h5>
+                            <li>місто:<span> {{cityName}}</span></li>
+                            <li>вул:<span> {{store?.street}}</span><span> {{store?.street_num}}</span></li>
+                            <li>тел:<a href="tel:044-281-06-16">{{store?.phone}}</a></li>
+                            <li>графік роботи:<span> {{store.work_time}}</span></li>
+                        </ul>
+
+                        <agm-map class="agm-map-detail" [zoom]="12" [disableDefaultUI]="false" [latitude]="location.lat"
+                                 [longitude]="location.lng">
+                            <agm-marker [latitude]="location.lat"
+                                        [label]="store.geoloc"
+                                        [iconUrl]="'../../assets/images/brand/mapmarker.png'"
+                                        [longitude]="location.lng">
+                            </agm-marker>
+                        </agm-map>
+                     </div>
+                    <!-- Start Map -->
+                    <div class="bigShopPhoto">
+                        <img class="bgStorDet" src="{{store?.front_url_static}}">
+                    </div>
+                    <!-- End Map -->
+                </div>
+            </div>
+            <!-- Detale Stores end -->
+        </div>
+    </div>
+</div>

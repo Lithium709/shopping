@@ -1,0 +1,31 @@
+<div class="container-stores">
+  <div class="stores">
+    <div class="row">
+
+      <!-- List Stores start -->
+      <div class="col-md-12 listLocator" id="listLocator">
+        <div class="locator">
+          <h4>{{cityName}}</h4>
+          <ul class="cityUlist">
+            <li><a routerLink="/store-detail/{{cityName}}/{{store.id}}" *ngFor="let store of stores"
+                   class="storeslink">{{store.trc + ' | ' +store.street + ' ' + store.street_num}}</a></li>
+          </ul>
+        </div>
+
+        <!-- Start Map -->
+          <div class="map" *ngIf="storesX">
+
+                        <agm-map class="agm-map" [zoom]="10" [latitude]="storesX[0].lat" [longitude]="storesX[0].lng">
+                          <agm-marker *ngFor="let store of storesX" [latitude]="store.lat"
+                          (markerClick)="onClick($event, store.store.id)"
+                          [iconUrl]="'../../assets/images/brand/mapmarker.png'"
+                          [longitude]="store.lng">
+                          </agm-marker>
+                        </agm-map>
+          </div>
+        <!-- End Map -->
+      </div>
+
+    </div>
+  </div>
+</div>

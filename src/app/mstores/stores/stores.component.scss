@@ -1,0 +1,131 @@
+.agm-map {
+  width:100%;
+  height: 530px;
+}
+
+
+.container-stores{
+  margin-bottom: 50px;
+}
+
+#listLocator{
+  display: block;
+}
+
+.storDetale{
+  display: none;
+}
+
+.stores{
+padding-top: 80px;
+padding-left: 30px;
+padding-right: 30px;
+}
+
+.place-card place-card-large{
+  display: none;
+}
+.default-card{
+  display: none;
+}
+
+.anotherStor{
+  margin-top: 30px;
+  padding-top: 10px;
+  border-top: 1px solid whitesmoke;
+}
+
+.map {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+}
+
+.bigShopPhoto{
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+}
+
+.bgStorDet{
+  width: 100%;
+  height: 520px;
+}
+
+.teserStor {
+  margin: 0px;
+  padding: 0px;
+  border: 1px solid whitesmoke;
+}
+
+.smStorImg{
+  width: 100%;
+}
+
+.backToStors{
+  color: gray;
+}
+
+.h5adressShopDetale{
+  margin-top: 50px;
+}
+
+
+.imgBlock{
+  margin: 0px;
+  padding: 0px;
+}
+
+.smStorName{
+  padding-top: 12px;
+  padding-left: 10px;
+}
+
+.cityUlist{
+  display: block;
+  height: 415px;
+  overflow-y: scroll;
+}
+
+.locator{
+  width: 380px;
+  min-height: 500px;
+  background-color: white;
+  position: relative;
+  margin-top: 10px;
+  z-index: 1;
+  margin-left: -6px;
+  padding: 20px;
+}
+
+.storeslink{
+  color: black;
+  font-size: 18px;
+  display: block;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  border-bottom: 1px solid whitesmoke;
+}
+
+@media only screen and (max-width: 780px) {
+  .map{
+    display: none;
+  }
+  .stores{
+    padding-top: 50px;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .locator{
+    min-height: 400px;
+  }
+  .bigShopPhoto{
+    display: none;
+  }
+  .agm-map-detail{
+    width: 80%;
+  }
+}
+

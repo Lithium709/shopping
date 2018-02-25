@@ -35,7 +35,7 @@ import {AuthInterceptor} from './auth/auth-interceptor';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import { Register } from  "./auth/register.service";
 import {CSRFService} from "./auth/csrf.service";
-// import {MstoresModule} from "./mstores/mstores.module";
+import { MstoresModule } from "./mstores/mstores.module";
 import { MblogModule } from "./mblog/mblog.module";
 
 // Routing MOdule
@@ -90,7 +90,7 @@ import {SafeHtmlPipe} from "./lib/pipe/safe-html";
         }),
         MenuComponentsModule,
         FormsModule,
-        // MstoresModule,
+        MstoresModule,
         // MblogModule,
         ReactiveFormsModule,
         HttpClientModule,
