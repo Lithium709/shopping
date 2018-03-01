@@ -330,7 +330,7 @@ export class productService {
     getOrderList():Observable<any>{
 
         if(environment.production){
-            return this.http.get(this.authBase + '/api/sale-orders');
+            return this.http.get(this.authBase + '/api/sale-orders?size=999');
         }
         return of([
             {
