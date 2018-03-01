@@ -799,4 +799,8 @@ export class productService {
                 return res.hits.hits.map(o=>o._source)});
     }
 
+    emailOrderAccepted(id:number){
+        return this.http.get(this.authBase + '/api/sale-orders/email/{id}');
+    }
+
 }

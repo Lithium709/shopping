@@ -256,7 +256,7 @@ export class ShippingComponent implements OnInit {
         }
         this.productService.postOrder(order).subscribe((response)=>{
 
-            console.log(response)
+           // console.log(response)
             Observable.forkJoin(order.orderLines.map(line=>this.productService.postOrderLine(response, line.item, line.quantity, line.price)))
                 .subscribe(()=>{
                     if(response.status = 201) {
@@ -267,6 +267,7 @@ export class ShippingComponent implements OnInit {
                         this.cookie.removeCookie('subtotal');
                         this.productService.onEmptyCart(response);
                         this.router.navigate(["/order-list"]);
+                        this.productService.emailOrderAccepted(response.id);
                     }
                 });
         });
