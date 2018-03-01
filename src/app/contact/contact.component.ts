@@ -131,7 +131,8 @@ export class ContactComponent implements OnInit {
                                                 password:this.regPassword
                                                 ,phone: this.phone,
                                                 firstName: this.firstName,
-                                                lastName: this.lastName
+                                                lastName: this.lastName,
+                                                langKey: 'ua'
             }).subscribe(() => {
                 console.log("Successfull Registration!");
                // this.success = true;
