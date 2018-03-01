@@ -10,13 +10,14 @@ import {MatInputModule, MatButtonModule } from '@angular/material';
 
 import { ActivateComponent } from './activate/activate.component';
 import { RememberComponent } from './remember/remember.component';
+import { PaswordResetComponent } from './pasword-reset/pasword-reset.component';
 
 @NgModule({
   imports: [
       BrowserModule, FormsModule, HttpClientModule, RouterModule, MatInputModule, MatButtonModule
   ],
   declarations: [
-        ActivateComponent, RememberComponent
+        ActivateComponent, RememberComponent, PaswordResetComponent
   ],
     exports: [
         ActivateComponent, RememberComponent

@@ -29,6 +29,7 @@ import { ContactComponent } from './contact/contact.component';
 
 import { ActivateComponent} from "./auth-forms/activate/activate.component";
 import { RememberComponent} from "./auth-forms/remember/remember.component";
+import { PaswordResetComponent} from "./auth-forms/pasword-reset/pasword-reset.component";
 
 import { StoresComponent } from "./mstores/stores/stores.component";
 import {StoreDetailComponent} from "./mstores/store-detail/store-detail.component";
@@ -77,6 +78,7 @@ const routes: Routes = [
 
     { path:'activate', component: ActivateComponent},
     { path:'remember', component: RememberComponent},
+    { path:'pasword-reset', component: PaswordResetComponent},
 
     { path: 'stores/:cityName', component: StoresComponent},
     { path:'store-detail/:cityName/:storeId', component: StoreDetailComponent},
