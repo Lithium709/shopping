@@ -25,6 +25,7 @@ import { ProductModule } from './product/product.module';
 
 import {CabinetModule} from "./cabinet/cabinet.module";
 // import { ElementModule } from './element/element.module';
+import {AutformsModule} from "./auth-forms/autforms.module";
 import { LoginService } from './login/login.service';
 import { Principal } from './auth/principal.service';
 import { AccountService } from './auth/account.service';
@@ -48,6 +49,7 @@ import { MenuComponent } from './menu/menu.component';
 // import { ToprowComponent } from './toprow/toprow.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginDialogComponent } from './login/login.component';
+
 // import { FrontSliderComponent } from './front-slider/front-slider.component';
 import {LogisticService} from "./lib/service/logistic.service";
 import { BlogComponent } from './blog/blog.component';
@@ -90,6 +92,7 @@ import {SafeHtmlPipe} from "./lib/pipe/safe-html";
         }),
         MenuComponentsModule,
         FormsModule,
+        AutformsModule,
         MstoresModule,
         // MblogModule,
         ReactiveFormsModule,

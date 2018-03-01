@@ -27,6 +27,9 @@ import {PersonSettingsComponent} from "./cabinet/person-settings/person-settings
 
 import { ContactComponent } from './contact/contact.component';
 
+import { ActivateComponent} from "./auth-forms/activate/activate.component";
+import { RememberComponent} from "./auth-forms/remember/remember.component";
+
 import { StoresComponent } from "./mstores/stores/stores.component";
 import {StoreDetailComponent} from "./mstores/store-detail/store-detail.component";
 
@@ -71,6 +74,9 @@ const routes: Routes = [
     { path: 'returnlist', component: ReturnlistComponent},
     { path: 'me', component: PersoninfoComponent},
     { path: 'cabinet/setings', component: PersonSettingsComponent},
+
+    { path:'activate', component: ActivateComponent},
+    { path:'remember', component: RememberComponent},
 
     { path: 'stores/:cityName', component: StoresComponent},
     { path:'store-detail/:cityName/:storeId', component: StoreDetailComponent},
