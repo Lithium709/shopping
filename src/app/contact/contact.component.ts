@@ -135,8 +135,8 @@ export class ContactComponent implements OnInit {
             }).subscribe(() => {
                 console.log("Successfull Registration!");
                // this.success = true;
-                this.redirect();
-                this.openSnackBar('Ви успішно зареєстровані', 'Done');
+                // this.redirect();
+                this.openSnackBar('На вашу адресу був відправлений лист з підтвердженням авторизації', 'Done');
             }, (response) => this.processError(response));
 
         }
