@@ -111,7 +111,6 @@ a.linkHtmlBan:hover{
 
 
 .shortDescMenu{
-	width: 300px;
 	overflow: hidden;
 }
 
@@ -343,7 +342,6 @@ a.linkHtmlBan:hover{
 }
 .megacollink li {
 	display: block;
-	width: 340px;
 	overflow: hidden;
 	white-space: nowrap;
 	text-align: left;
