@@ -133,9 +133,10 @@ export class ContactComponent implements OnInit {
                                                 firstName: this.firstName,
                                                 lastName: this.lastName
             }).subscribe(() => {
-               // console.log("Successfull Registration!");
+                console.log("Successfull Registration!");
                // this.success = true;
-               // this.openSnackBar('Ви успішно зареєстровані', 'Done');
+                this.redirect();
+                this.openSnackBar('Ви успішно зареєстровані', 'Done');
             }, (response) => this.processError(response));
 
         }
