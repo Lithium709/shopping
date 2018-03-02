@@ -10,9 +10,9 @@ import {AccountService} from "../../auth/account.service";
 })
 export class ActivateComponent implements OnInit {
 
-   private key:string;
-   private activated:boolean = false;
-   private error:boolean=false;
+   public key:string;
+   public activated:boolean = false;
+   public error:boolean=false;
 
   constructor(private activeRoute: ActivatedRoute, private accountService: AccountService) {
 

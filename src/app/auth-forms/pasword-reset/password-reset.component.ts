@@ -9,11 +9,11 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class PasswordResetComponent implements OnInit {
 
-  private key: string;
+  public key: string;
   public password: string;
   public password2: string;
-  private success: boolean = false;
-  private error:boolean = false;
+  public success: boolean = false;
+  public error:boolean = false;
   constructor(private accountService: AccountService, private activeRoute: ActivatedRoute) {
     this.activeRoute.queryParams.subscribe(params => {
         this.key = params["key"];
