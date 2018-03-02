@@ -11,13 +11,14 @@ import {ErrorStateMatcher} from '@angular/material/core';
 import {Observable} from "rxjs/Rx";
 import {startWith} from 'rxjs/operators/startWith';
 import {map} from 'rxjs/operators/map';
-
+declare var Wayforpay:any;
 export class MyErrorStateMatcher implements ErrorStateMatcher {
     isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
         const isSubmitted = form && form.submitted;
         return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
     }
 }
+
 
 @Component({
     selector: 'app-shipping',
@@ -125,6 +126,38 @@ export class ShippingComponent implements OnInit {
             this.firstName = data.firstName;
             this.lastName = data.lastName;
         });
+    }
+
+    pay(){
+        const wayforpay = new Wayforpay();
+        wayforpay.run({
+                merchantAccount : "test_merch_n1",
+                merchantDomainName : "www.market.ua",
+                authorizationType : "SimpleSignature",
+                merchantSignature : "b95932786cbe243a76b014846b63fe92",
+                orderReference : "DH783023",
+                orderDate : "1415379863",
+                amount : "1547.36",
+                currency : "UAH",
+                productName : "Процессор Intel Core i5-4670 3.4GHz",
+                productPrice : "1000",
+                productCount : "1",
+                clientFirstName : "Вася",
+                clientLastName : "Васечкин",
+                clientEmail : "some@mail.com",
+                clientPhone: "380631234567",
+                language: "UA"
+            },
+            function (response) {
+                // on approved
+            },
+            function (response) {
+                // on declined
+            },
+            function (response) {
+                // on pending or in processing
+            }
+        );
     }
 
     onSelectArea(region){
