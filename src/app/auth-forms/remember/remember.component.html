@@ -3,14 +3,16 @@
         <div class="row">
             <div class="col s12 l12 m12">
                 <h3>ЗГАДАТИ ПАРОЛЬ</h3>
-
+                <span class="info" *ngIf="reset">На ваш E-mail ({{email}}) був відправлений лист з подальшими інструкціями</span>
                 <h4>Ваш E-mail</h4>
-                <form class="example-form">
+                <form #formRef="ngForm" class="example-form">
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="E-mail" value="demomail@arber.ua">
+                        <input matInput placeholder="E-mail" name="email" [(ngModel)]="email" value="" #emailRef="ngModel" required>
                     </mat-form-field>
+                    <small class="error" *ngIf="emailRef.errors?.required && emailRef.touched">обов'язково до заповнення</small>
+                    <small class="error" *ngIf="!exists">Такий E-mail не знайдено</small>
                 </form>
-                <button class="enterbtmail" mat-button routerLink="/pasword-reset">ВІДПРАВИТИ</button>
+                <button [disabled]="formRef?.invalid || !isFilled()" class="enterbtmail" mat-button (click)="resetPassword()" >ВІДПРАВИТИ</button>
 
             </div>
         </div>

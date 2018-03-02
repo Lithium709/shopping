@@ -25,7 +25,7 @@ import { ProductModule } from './product/product.module';
 
 import {CabinetModule} from "./cabinet/cabinet.module";
 // import { ElementModule } from './element/element.module';
-import {AutformsModule} from "./auth-forms/autforms.module";
+import {AuthFormsModule} from "./auth-forms/auth-forms.module";
 import { LoginService } from './login/login.service';
 import { Principal } from './auth/principal.service';
 import { AccountService } from './auth/account.service';
@@ -92,7 +92,7 @@ import {SafeHtmlPipe} from "./lib/pipe/safe-html";
         }),
         MenuComponentsModule,
         FormsModule,
-        AutformsModule,
+        AuthFormsModule,
         MstoresModule,
         // MblogModule,
         ReactiveFormsModule,
