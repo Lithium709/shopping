@@ -44,7 +44,7 @@
                     </div>
                 </div>
                  <div *ngIf="deliveryChoice=='1'" class="accordion shipingMenu">
-                     <form #formRef="ngForm" (ngSubmit)="onSubmit(formRef)">
+                     <form #formRef="ngForm" >
                          <div class="row">
                              <div class="col m6 s12 dropshipingnenu">
                                  <h5>Адреса отримувача</h5>
@@ -142,7 +142,7 @@
                 <!-- To the dor start-->
 
                 <div *ngIf="deliveryChoice=='2'" class="accordion shipingMenu">
-                    <form #formRef="ngForm" (ngSubmit)="onSubmit(formRef)">
+                    <form #formRef="ngForm">
                         <div class="row">
                             <div class="col m6 s12 dropshipingnenu">
                                 <h5>Адреса отримувача</h5>
@@ -259,7 +259,7 @@
                 <!-- to the dor finish -->
 
                 <div *ngIf="deliveryChoice=='3'" class="accordion shipingMenu">
-                    <form #formRef="ngForm" (ngSubmit)="onSubmit(formRef)">
+                    <form #formRef="ngForm">
                         <div class="row">
                             <div class="col m6 s12 dropshipingnenu">
                                 <h5>Адреса отримувача</h5>

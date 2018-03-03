@@ -181,103 +181,12 @@ export class ShippingComponent implements OnInit {
         this.department = undefined;
     }
 
-    // Open Popup Checkout
-    openCheckout() {
-        var handler = (<any>window).StripeCheckout.configure({
-            key: 'pk_test_RdW4DTIQXiTLULbUy1vnQUsV',
-            locale: 'auto',
-            token: (token: any) => {
-                // You can access the token ID with `token.id`.
-                // Get the token ID to your server-side code for use.
-                // Documentation charge https://stripe.com/docs/charges
-                console.log(token.id);
-                this.cookie.addCookie('payed', 'payed');
-                this.cookie.removeCookie('products');                           
-                this.cookie.removeCookie('promo');                           
-                this.cookie.removeCookie('promoValue');                           
-                this.cookie.removeCookie('subtotal');    
-                setTimeout(()=>{
-                this.router.navigate(['/shop/receipt']);
-                }, 1000);                      
-            },
-            closed : () =>{
-                this.nottouched = true;
-                this.touched = false;
-                console.log('asd');
-            }
-        });
-        
-        // handler Open
-        handler.open({
-            image: '/assets/images/brand/logo-stripe.jpg',
-            name: 'Angushop',
-            description: 'Complete payment',
-            amount: this.total
-        });
-    }
-
-
-    // Submit
-    onSubmit(form){
-        console.log(form.value); // Object Shipping Object
-        console.log(this.cookie['productsOrder']); // Array Obect Products order
-        console.log(this.cookie['promo']); // Object Promo
-        console.log(this.cookie['promoValue']); // Object Promo Value From calculation
-        console.log(this.cookie['subtotal']); // Object Sub Total     
-        
-        this.openCheckout();
-
-        this.nottouched = false;
-        this.touched = true;
-    }
-
     openSnackBar(message: string, action: string) {
         this.snackBar.open(message, action, {
             duration: 2000,
         });
     }
-
-    pay(){
-        // let order = this.getOrder();
-
-        /*
-       const wayforpay = new Wayforpay();
-       wayforpay.run({
-               merchantAccount : "test_merch_n1",
-               merchantDomainName : "www.market.ua",
-               authorizationType : "SimpleSignature",
-               merchantSignature : "4c19ee40b5ac8c2387d79780dc3a038c",
-               orderReference : "DH783044",
-               orderDate : "1415379863",
-               amount : "1547.36",
-               currency : "UAH",
-               productName : "Процессор Intel Core i5-4670 3.4GHz",
-               productPrice : "1000",
-               productCount : "1",
-               clientFirstName : "Вася",
-               clientLastName : "Васечкин",
-               clientEmail : "some@mail.com",
-               clientPhone: "380631234567",
-               language: "UA"
-           },
-           function (response) {
-               // on approved
-           },
-           function (response) {
-               // on declined
-           },
-           function (response) {
-               // on pending or in processing
-           }
-       );
-       */
-    }
-
-    createSignature(order:any){
-        return md5("test_merch_n1;www.market.ua;DH783044;1415379863;1547.36;UAH;Процессор Intel Core i5-4670 3.4GHz;1;1000",
-            "flk3409refn54t54t*FNJRET");
-    }
-
+ 
     getSignature(order, lines){
         const hashparam = [
             environment.merchantAccount,
