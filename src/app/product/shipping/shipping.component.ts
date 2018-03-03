@@ -205,6 +205,8 @@ export class ShippingComponent implements OnInit {
     }
 
     finalizeOrder(order:any){
+        console.log(order);
+        this.productService.emailOrderAccepted(order.id).subscribe(()=>{});
         this.openSnackBar('Ваше замовлення відправлено на обробку!', 'Done');
         this.cookie.removeCookie('products');
         this.cookie.removeCookie('promo');
@@ -212,7 +214,6 @@ export class ShippingComponent implements OnInit {
         this.cookie.removeCookie('subtotal');
         this.productService.onEmptyCart(order);
         this.router.navigate(["/order-list"]);
-        this.productService.emailOrderAccepted(order.id);
     }
 
     postOrder(){

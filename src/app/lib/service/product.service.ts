@@ -823,7 +823,7 @@ export class productService {
     }
 
     emailOrderAccepted(id:number){
-        return this.http.get(this.authBase + '/api/sale-orders/email/{id}');
+        return this.http.get(this.authBase + '/api/sale-orders/email/'+id);
     }
 
 }
