@@ -386,6 +386,29 @@ export class productService {
         });
     }
 
+    updateOrder(order: any):Observable<any>{
+        if(environment.production){
+            return this.http.put(this.authBase+ '/api/sale-orders', order);
+        }
+        return of({
+            "id": 1,
+            "buyer": "Віктор Андрійович",
+            "orderDate": "2017-12-09",
+            "state": "PROCESSING",
+            "cancelled": false,
+            "paid": true,
+            "deliveryAllowed": true,
+            "delivered": false,
+            "hasTroubles": false,
+            "total": 1000,
+            "phone": null,
+            "area": "Київська",
+            "city": "Київ",
+            "warehouse": "49",
+            "lines": []
+        });
+    }
+
     //post order line
     postOrderLine(order :Order, item: Item, quantity: number, price: number){
         if(environment.production){

@@ -29,6 +29,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     styleUrls: ['./shipping.component.scss']
 })
 export class ShippingComponent implements OnInit {
+    public formRef:any;
     options: FormGroup;
     cityControl: FormControl = new FormControl();
     filteredTowns: Observable<string[]>;
@@ -186,7 +187,7 @@ export class ShippingComponent implements OnInit {
             duration: 2000,
         });
     }
- 
+
     getSignature(order, lines){
         const hashparam = [
             environment.merchantAccount,
@@ -199,8 +200,19 @@ export class ShippingComponent implements OnInit {
             lines.map(a=>a.quantity).join(";"),
             lines.map(a=>a.price).join(";")
         ].join(";");
-        console.log("hash param=", hashparam)
+        // console.log("hash param=", hashparam)
         return md5(hashparam, environment.merchantSecretKey);
+    }
+
+    finalizeOrder(order:any){
+        this.openSnackBar('Ваше замовлення відправлено на обробку!', 'Done');
+        this.cookie.removeCookie('products');
+        this.cookie.removeCookie('promo');
+        this.cookie.removeCookie('promoValue');
+        this.cookie.removeCookie('subtotal');
+        this.productService.onEmptyCart(order);
+        this.router.navigate(["/order-list"]);
+        this.productService.emailOrderAccepted(order.id);
     }
 
     postOrder(){
@@ -252,30 +264,42 @@ export class ShippingComponent implements OnInit {
                                 clientPhone: this.phone,
                                 language: "UA"
                             };
-                            console.log(params);
+                            // console.log(params);
                             wayforpay.run(params,
-                                function (response) {
+                                function (response2) {
                                     // on approved
                                     //this.productService.postOrder(order).subscribe()
+                                    response.paid = true;
+                                    this.productService.updateOrder(response).subscribe((res)=>{
+                                        console.log(res);
+                                    });
+                                    // this.openSnackBar('Оплата успішна!', 'Done');
+                                    this.finalizeOrder(response);
                                 },
-                                function (response) {
+                                function (response2) {
                                     // on declined
+                                    response.hasTroubles = true
+                                    this.productService.updateOrder(response).subscribe((res)=>{
+                                        console.log(res);
+                                    });
+                                    this.openSnackBar('Помилка при оплаті!', 'Error');
                                 },
-                                function (response) {
+                                function (response2) {
+                                    response.hasTroubles = true;
+                                    response.paid = true;
+                                    this.productService.updateOrder(response).subscribe((res)=>{
+                                        console.log(res);
+                                    });
+                                    this.openSnackBar('Очікування оплати!', 'Error');
                                     // on pending or in processing
                                 }
                             );
                         }
-                        this.router.navigate(["/order-list"]);
-                        this.productService.emailOrderAccepted(response.id);
+                        else{
+                            this.finalizeOrder(response);
+                        }
                     }
-                    this.openSnackBar('Ваше замовлення відправлено на обробку!', 'Done');
-                    this.cookie.removeCookie('products');
-                    this.cookie.removeCookie('promo');
-                    this.cookie.removeCookie('promoValue');
-                    this.cookie.removeCookie('subtotal');
-                    this.productService.onEmptyCart(response);
-                });
+                 });
         });
 
     }
