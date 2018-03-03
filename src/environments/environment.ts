@@ -7,5 +7,6 @@ export const environment = {
     deliveryUrl: "https://api.novaposhta.ua/v2.0/json/",
     merchantAccount: "test_merch_n1",
     merchantSecretKey: "flk3409refn54t54t*FNJRET",
-    merchantDomainName: "www.market.ua"
+    merchantDomainName: "www.market.ua",
+    prefix: "ARB"
 };

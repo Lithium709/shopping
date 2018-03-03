@@ -192,7 +192,7 @@ export class ShippingComponent implements OnInit {
         const hashparam = [
             environment.merchantAccount,
             environment.merchantDomainName,
-            "ARB" + order.id,
+            environment.prefix + order.id,
             Date.parse(order.orderDate)/1000,
             order.total,
             "UAH",
@@ -251,7 +251,7 @@ export class ShippingComponent implements OnInit {
                                 merchantDomainName : environment.merchantDomainName,
                                 authorizationType : "SimpleSignature",
                                 merchantSignature : this.getSignature(response, lines),
-                                orderReference : "ARB" + response.id,
+                                orderReference : environment.prefix + response.id,
                                 orderDate : Date.parse(order.orderDate)/1000,
                                 amount : response.total,
                                 currency : "UAH",
