@@ -340,9 +340,9 @@
 
                 <h5  class="check">ОПЛАТА</h5>
                 <form id='form-id'>
-                    <input class="payvar" name='test' type='radio' checked (click)="payOnCheckout=true" /> Оплата карткою VISA/MASTERCARD
+                    <input (change)="payOnCheckout=true"  class="payvar" name='test' type='radio' checked /> Оплата карткою VISA/MASTERCARD
                     <br>
-                    <input class="payvar" name='test' type='radio' (click)="payOnCheckout=false" /> Оплата при отриманні
+                    <input (change)="payOnCheckout=false"  class="payvar" name='test' type='radio'  /> Оплата при отриманні
                 </form>
 
             </div>
