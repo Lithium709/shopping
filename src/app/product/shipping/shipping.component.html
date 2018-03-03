@@ -340,9 +340,9 @@
 
                 <h5  class="check">ОПЛАТА</h5>
                 <form id='form-id'>
-                    <input class="payvar" name='test' type='radio' /> Оплата карткою VISA/MASTERCARD
+                    <input class="payvar" name='test' type='radio' checked (click)="payOnCheckout=true" /> Оплата карткою VISA/MASTERCARD
                     <br>
-                    <input class="payvar" name='test' type='radio' /> Оплата при отриманні
+                    <input class="payvar" name='test' type='radio' (click)="payOnCheckout=false" /> Оплата при отриманні
                 </form>
 
             </div>
@@ -369,7 +369,7 @@
                     </tr>
                 </table>
                 <div class=" l4 m5 s12">
-                    <button [disabled]="formRef?.invalid || !isFilled()" mat-button (click)="pay()"  class="btn btn-primary btn-block">ОФОРМИТИ ЗАМОВЛЕННЯ</button>
+                    <button [disabled]="formRef?.invalid || !isFilled()" mat-button (click)="postOrder()"  class="btn btn-primary btn-block">ОФОРМИТИ ЗАМОВЛЕННЯ</button>
                 </div>
             </div>
         </div>

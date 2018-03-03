@@ -11,7 +11,10 @@ import {ErrorStateMatcher} from '@angular/material/core';
 import {Observable} from "rxjs/Rx";
 import {startWith} from 'rxjs/operators/startWith';
 import {map} from 'rxjs/operators/map';
+import { environment } from './../../../environments/environment';
+
 declare var Wayforpay:any;
+declare var md5:any;
 export class MyErrorStateMatcher implements ErrorStateMatcher {
     isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
         const isSubmitted = form && form.submitted;
@@ -26,7 +29,6 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     styleUrls: ['./shipping.component.scss']
 })
 export class ShippingComponent implements OnInit {
-    formRef: any;
     options: FormGroup;
     cityControl: FormControl = new FormControl();
     filteredTowns: Observable<string[]>;
@@ -60,6 +62,8 @@ export class ShippingComponent implements OnInit {
     public department :any;
     public region :any;
     public deliveryChoice:string='1';
+
+    public payOnCheckout = true;
 
     checks = [
         {value: 'card-0', viewValue: 'Оплата карткою Visa/Mastercard'},
@@ -125,39 +129,8 @@ export class ShippingComponent implements OnInit {
             this.phone = data.phone;
             this.firstName = data.firstName;
             this.lastName = data.lastName;
+            this.email = data.email;
         });
-    }
-
-    pay(){
-        const wayforpay = new Wayforpay();
-        wayforpay.run({
-                merchantAccount : "test_merch_n1",
-                merchantDomainName : "www.market.ua",
-                authorizationType : "SimpleSignature",
-                merchantSignature : "b95932786cbe243a76b014846b63fe92",
-                orderReference : "DH783023",
-                orderDate : "1415379863",
-                amount : "1547.36",
-                currency : "UAH",
-                productName : "Процессор Intel Core i5-4670 3.4GHz",
-                productPrice : "1000",
-                productCount : "1",
-                clientFirstName : "Вася",
-                clientLastName : "Васечкин",
-                clientEmail : "some@mail.com",
-                clientPhone: "380631234567",
-                language: "UA"
-            },
-            function (response) {
-                // on approved
-            },
-            function (response) {
-                // on declined
-            },
-            function (response) {
-                // on pending or in processing
-            }
-        );
     }
 
     onSelectArea(region){
@@ -264,15 +237,73 @@ export class ShippingComponent implements OnInit {
         });
     }
 
-    postOrder(){
-        console.log(this.cookie['productsOrder']);
+    pay(){
+        // let order = this.getOrder();
 
+        /*
+       const wayforpay = new Wayforpay();
+       wayforpay.run({
+               merchantAccount : "test_merch_n1",
+               merchantDomainName : "www.market.ua",
+               authorizationType : "SimpleSignature",
+               merchantSignature : "4c19ee40b5ac8c2387d79780dc3a038c",
+               orderReference : "DH783044",
+               orderDate : "1415379863",
+               amount : "1547.36",
+               currency : "UAH",
+               productName : "Процессор Intel Core i5-4670 3.4GHz",
+               productPrice : "1000",
+               productCount : "1",
+               clientFirstName : "Вася",
+               clientLastName : "Васечкин",
+               clientEmail : "some@mail.com",
+               clientPhone: "380631234567",
+               language: "UA"
+           },
+           function (response) {
+               // on approved
+           },
+           function (response) {
+               // on declined
+           },
+           function (response) {
+               // on pending or in processing
+           }
+       );
+       */
+    }
+
+    createSignature(order:any){
+        return md5("test_merch_n1;www.market.ua;DH783044;1415379863;1547.36;UAH;Процессор Intel Core i5-4670 3.4GHz;1;1000",
+            "flk3409refn54t54t*FNJRET");
+    }
+
+    getSignature(order, lines){
+        const hashparam = [
+            environment.merchantAccount,
+            environment.merchantDomainName,
+            "ARB" + order.id,
+            Date.parse(order.orderDate)/1000,
+            order.total,
+            "UAH",
+            lines.map(a=>a.productName).join(";"),
+            lines.map(a=>a.quantity).join(";"),
+            lines.map(a=>a.price).join(";")
+        ].join(";");
+        console.log("hash param=", hashparam)
+        return md5(hashparam, environment.merchantSecretKey);
+    }
+
+    postOrder(){
+        const lines = this.cookie['productsOrder'];
+        console.log("lines=");
+        console.log(lines);
         let order = {
             "buyer": this.firstName + ' ' + this.lastName,
             "orderDate": new Date().toISOString().slice(0,10),
             "state": "NEW",
             "cancelled": false,
-            "paid": true,
+            "paid": false,
             "deliveryAllowed": true,
             "delivered": false,
             "hasTroubles": false,
@@ -284,24 +315,57 @@ export class ShippingComponent implements OnInit {
             "street" : this.street,
             "house" : this.house,
             "flat" : this.flat,
-            "orderLines":
-                this.cookie['productsOrder']
+            "orderLines": lines
         }
+        // console.log(this.cookie['productsOrder']);
         this.productService.postOrder(order).subscribe((response)=>{
-
-           // console.log(response)
             Observable.forkJoin(order.orderLines.map(line=>this.productService.postOrderLine(response, line.item, line.quantity, line.price)))
                 .subscribe(()=>{
                     if(response.status = 201) {
-                        this.openSnackBar('Ваше замовлення відправлено на обробку!', 'Done');
-                        this.cookie.removeCookie('products');
-                        this.cookie.removeCookie('promo');
-                        this.cookie.removeCookie('promoValue');
-                        this.cookie.removeCookie('subtotal');
-                        this.productService.onEmptyCart(response);
+                        if(this.payOnCheckout){
+                            const wayforpay = new Wayforpay();
+                            const oneline = lines.length==1;
+                            const params = {
+                                merchantAccount : environment.merchantAccount,
+                                merchantDomainName : environment.merchantDomainName,
+                                authorizationType : "SimpleSignature",
+                                merchantSignature : this.getSignature(response, lines),
+                                orderReference : "ARB" + response.id,
+                                orderDate : Date.parse(order.orderDate)/1000,
+                                amount : response.total,
+                                currency : "UAH",
+                                productName : oneline?lines[0].productName:lines.map(a=>a.productName),
+                                productPrice :oneline?lines[0].price      :lines.map(a=>a.price),
+                                productCount :oneline?lines[0].quantity   :lines.map(a=>a.quantity),
+                                clientFirstName : this.firstName,
+                                clientLastName : this.lastName,
+                                clientEmail : this.email,
+                                clientPhone: this.phone,
+                                language: "UA"
+                            };
+                            console.log(params);
+                            wayforpay.run(params,
+                                function (response) {
+                                    // on approved
+                                    //this.productService.postOrder(order).subscribe()
+                                },
+                                function (response) {
+                                    // on declined
+                                },
+                                function (response) {
+                                    // on pending or in processing
+                                }
+                            );
+                        }
                         this.router.navigate(["/order-list"]);
                         this.productService.emailOrderAccepted(response.id);
                     }
+                    this.openSnackBar('Ваше замовлення відправлено на обробку!', 'Done');
+                    this.cookie.removeCookie('products');
+                    this.cookie.removeCookie('promo');
+                    this.cookie.removeCookie('promoValue');
+                    this.cookie.removeCookie('subtotal');
+                    this.productService.onEmptyCart(response);
                 });
         });
 
