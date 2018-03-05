@@ -770,7 +770,7 @@ export class productService {
                     }
                 });break;
                 case 'search' : if(  filter[field]) {
-                    let regex = /^([a-z][a-z]).(\d\d).(\d\d).(\d\d)$/g;
+                    let regex = /^([a-z][a-z]).(\d\d).(\d\d).(\d\d)$/ig;
                     if (!regex.test(filter[field])) {
                         // console.log("default search");
                         mustFilter.push({
@@ -780,7 +780,7 @@ export class productService {
                         });
                     }
                     else {
-                        let regex1 = /^([a-z][a-z]).(\d\d).(\d\d).(\d\d)$/g;
+                        let regex1 = /^([a-z][a-z]).(\d\d).(\d\d).(\d\d)$/ig;
                         let arr = regex1.exec(filter[field]);
                         // console.log(filter[field]);
                         // console.log(arr);
