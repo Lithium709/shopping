@@ -103,9 +103,9 @@ export class productService {
     // Get Product By Slug
     getSlugProduct(slug: string): Observable<Product>{
         if(environment.production){
-            return this.http.get(this.searchBase + '/product/_search/?size=1&q=slug:' + slug)
-            //.map((res:Response) => res.json().hits.hits[0]._source);
-                .map((res:any)=>res.hits.hits[0]._source);
+            let q= {"query":{"constant_score":{"filter":{"bool":{"must":[{"match_phrase_prefix":{"slug":slug}}]}}}},"sort":{},"size":1};
+            return this.http.post(this.searchBase + '/product/_search',q)
+                 .map((res:any)=>res.hits.hits[0]._source);
         }
         return this.getProduct().map(products => products.find(product => product.slug === slug));
     }
