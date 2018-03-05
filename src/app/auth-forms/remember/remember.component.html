@@ -13,7 +13,6 @@
                     <small class="error" *ngIf="!exists">Такий E-mail не знайдено</small>
                 </form>
                 <button [disabled]="formRef?.invalid || !isFilled()" class="enterbtmail" mat-button (click)="resetPassword()" >ВІДПРАВИТИ</button>
-
             </div>
         </div>
     </div>

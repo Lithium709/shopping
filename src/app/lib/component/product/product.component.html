@@ -35,7 +35,7 @@
                 <a class="desckTitle" [routerLink]="'/product/' + product.slug"><h5 class="title truncate">{{product.nameUA}}</h5></a>
                 <p class="sku">{{product.article}}</p>
                 <!--<rating [value]="product.rate"></rating>-->
-                <strong class="oldPrice">{{product.oldPrice | number}} ГРН</strong>
+                <strong *ngIf="product.oldPrice" class="oldPrice">{{product.oldPrice | number}} ГРН</strong>
                 <strong class="price">{{product.price | number}} ГРН</strong>
 
                 <!--<div [@visibility]="selectProduct == product ? 'shown' : 'hidden'" class="overlay valign-wrapper">

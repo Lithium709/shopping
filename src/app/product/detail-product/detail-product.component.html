@@ -193,10 +193,10 @@
 
             <div class="col s12 m6 l6">
                 <div class="detBlockImg">
-                    <img class="detBlockImgS" [src]="product.photos[0]?.link" [alt]="product.nameUA"/>
-                    <img class="detBlockImgS" [src]="product.photos[1]?.link" [alt]="product.nameUA"/>
-                    <img class="detBlockImgS" [src]="product.photos[2]?.link" [alt]="product.nameUA"/>
-                    <img class="detBlockImgS" [src]="product.photos[3]?.link" [alt]="product.nameUA"/>
+                    <img *ngIf="product.photos[0]?.link" class="detBlockImgS" [src]="product.photos[0]?.link" [alt]="product.nameUA"/>
+                    <img *ngIf="product.photos[1]?.link" class="detBlockImgS" [src]="product.photos[1]?.link" [alt]="product.nameUA"/>
+                    <img *ngIf="product.photos[2]?.link" class="detBlockImgS" [src]="product.photos[2]?.link" [alt]="product.nameUA"/>
+                    <img *ngIf="product.photos[3]?.link" class="detBlockImgS" [src]="product.photos[3]?.link" [alt]="product.nameUA"/>
                 </div>
             </div>
         </div>

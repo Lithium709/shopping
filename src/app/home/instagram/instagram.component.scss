@@ -28,13 +28,21 @@
   -ms-transform: translate(-50%, -50%)
 }
 
-.cont:hover .image {
+/*.cont{
+  height: 300px;
+}*/
+
+/*.cont:hover .image {
   opacity: 0.3;
   cursor: pointer;
 }
 
 .cont:hover .middle {
   opacity: 1;
+}*/
+
+.lightwidget-widget{
+  height: 300px;
 }
 
 .text {

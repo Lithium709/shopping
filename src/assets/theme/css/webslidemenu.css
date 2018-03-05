@@ -112,6 +112,7 @@ a.linkHtmlBan:hover{
 
 .shortDescMenu{
 	overflow: hidden;
+	width: 320px;
 }
 
 .searchTopBlock{

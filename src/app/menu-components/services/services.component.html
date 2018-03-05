@@ -12,7 +12,8 @@
   </div>
   <div *ngFor="let block of rightHtmlBlocks" class="megacolimage">
     <h3 class="title">{{block.title}}</h3>
+
     <div class="fluid-width-video-wrapper">
-        <img src="{{block.image}}" alt=""/>
+        <a class="banservices" href="{{block.link}}"><img src="{{block.image}}" alt=""/></a>
     </div>
   </div>
