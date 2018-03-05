@@ -11,7 +11,7 @@ import 'hammerjs';
 import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
 
 import {MatDialogModule} from '@angular/material/dialog';
-import {MatSelect} from "@angular/material";
+import {MatSelectModule} from "@angular/material";
 import { MatExpansionModule } from "@angular/material";
 
 
@@ -100,6 +100,7 @@ import {SafeHtmlPipe} from "./lib/pipe/safe-html";
         BrowserAnimationsModule,
         MblogModule,
         MatDialogModule,
+        MatSelectModule,
         MatProgressSpinnerModule,
         MatIconModule,
         MatButtonModule,

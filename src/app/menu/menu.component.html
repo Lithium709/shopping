@@ -68,6 +68,8 @@
                     -->
                 </li>
 
+
+
                 <li class="right-panel"><a (click)="loginClick()"><i class="fa fa-user-o fa-lg" [class.auth]="isAuthenticated()" aria-hidden="true"></i></a></li>
                 <li class="right-panel"><a (click)="onClickMainMenu('search')"><i class="fa fa-search fa-lg" aria-hidden="true"></i></a>
                     <div class="megamenu" [class.toggleHeight]="menuState.search" [class.active]="actmenu == 'search'">
@@ -84,6 +86,20 @@
                             </div>
                         </div>
                     </div>
+                </li>
+
+                <li class="right-panel phoneheader">
+
+                    <mat-form-field>
+                        <mat-select [(value)]="selected">
+                            <mat-option value="option1">0 800-212-214</mat-option>
+                            <mat-option value="option2">(044) 333-44-43</mat-option>
+                            <mat-option value="option3">(099) 97-83-544</mat-option>
+                            <mat-option value="option4">(068) 34-38-628</mat-option>
+                            <mat-option value="option5">(093) 170-22-23</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
                 </li>
 
                 <div class="mobileEnter">

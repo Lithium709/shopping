@@ -37,6 +37,9 @@ import { trigger,state,style,transition,animate,keyframes } from '@angular/anima
 export class MenuComponent implements OnInit {
 
 
+    selected = 'option1';
+
+
     actmenu ='';
     menuState : any = {};
     menuOpen = false;
@@ -58,6 +61,9 @@ export class MenuComponent implements OnInit {
         }, 700);
 
     }
+
+
+
 
     ngOnInit() {
         this.imageUrl = this.principal.getImageUrl();
