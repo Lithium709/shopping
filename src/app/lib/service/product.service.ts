@@ -210,7 +210,7 @@ export class productService {
 
         if(environment.production){
 
-            return this.http.get(this.searchBase + '/menucategory/_search')
+            return this.http.get(this.searchBase + '/menucategory/_search?size=99')
                 .map((res:any)=>res.hits.hits.map(o=>o._source));
         }
         return of(this.MENUCATEGORIES);
@@ -447,7 +447,7 @@ export class productService {
     }
 
     getReturnList():Observable<any>{
-        return this.http.get(this.authBase + '/api/return-orders');
+        return this.http.get(this.authBase + '/api/return-orders?size=999');
     }
 
     returnOrder(order :any, fullName: string, trackNumber:string, personalInfo:string){
