@@ -1,0 +1,13 @@
+{
+  "distPath": "./dist", // This is where the site will be generated. 
+  "blogPath": "./src/blog", // This is the folder where your blog entries are located. 
+  "stylesPath": "./src/styles.scss", // This is the file that contains your global styles. 
+  "templatePath": "./src/index.html", // This is your template html file. This is passed to HtmlWebpackPlugin. 
+  "appModule": "./src/app/app.module#AppModule", // This is the path and class name of your AppModule. 
+  "appRoutes": "./src/app/app-routing.module#routes", // This is the path and export name or your routes. 
+  "appComponent": "./src/app/app.component#AppComponent", // This is the path and name or your root component. 
+ 
+  // Options for building an optional client app. 
+  "mainPath": "./src/main.ts", // This is the file that contains the browser bootstrap code. 
+  "polyfillsPath": "./src/polyfills.ts" // Include this is you need a polyfills bundle. 
+}

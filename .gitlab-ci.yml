@@ -8,7 +8,7 @@ before_script:
 
 build:
   only:
-  - master5
+  - master6
   stage: build
   script:
   - docker build -t armiax2/apps .
