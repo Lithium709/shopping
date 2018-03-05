@@ -56,8 +56,9 @@ export class CatalogComponent implements OnInit {
     fetchMenuCategory(){
 
         this.productService.getMenuCategories().subscribe(data=>{
-            this.menuCategoriesAttention = data.filter(i=>i.attention);
-            this.menuCategories = data.filter(m => !m.attention);
+            let list = data.sort((a,b)=> a.position - b.position);
+            this.menuCategoriesAttention = list.filter(i=>i.attention);
+            this.menuCategories = list.filter(m => !m.attention);
         });
     }
 
