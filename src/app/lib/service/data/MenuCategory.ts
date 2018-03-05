@@ -7,6 +7,7 @@ export class MenuCategory{
         public position?: number,
         public attention?:boolean,
         public imageLink?:string,
+        public publish?: boolean,
         public branches?: Array<Category>
     ) {
     }
