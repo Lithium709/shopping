@@ -37,7 +37,8 @@ export class ShippingComponent implements OnInit {
     public total: number; 
     public subTotal: number; 
     private promo: string;
-    public promoValue: number = 0;    
+    public promoValue: number = 0;
+    public orderId: number = 0;
     public nottouched = true;
     public touched = false;
     
@@ -65,6 +66,8 @@ export class ShippingComponent implements OnInit {
     public deliveryChoice:string='1';
 
     public payOnCheckout = true;
+    public lines: any[];
+    public savedOrder:any;
 
     checks = [
         {value: 'card-0', viewValue: 'Оплата карткою Visa/Mastercard'},
@@ -200,7 +203,6 @@ export class ShippingComponent implements OnInit {
             lines.map(a=>a.quantity).join(";"),
             lines.map(a=>a.price).join(";")
         ].join(";");
-        // console.log("hash param=", hashparam)
         return md5(hashparam, environment.merchantSecretKey);
     }
 
@@ -217,9 +219,16 @@ export class ShippingComponent implements OnInit {
     }
 
     postOrder(){
-        const lines = this.cookie['productsOrder'];
-        console.log("lines=");
-        console.log(lines);
+        if(this.savedOrder){
+            if(this.payOnCheckout){
+                this.pay(this.savedOrder);
+            }
+            else {
+                this.finalizeOrder({id: this.orderId});
+            }
+            return;
+        }
+        this.lines = this.cookie['productsOrder'];
         let order = {
             "buyer": this.firstName + ' ' + this.lastName,
             "orderDate": new Date().toISOString().slice(0,10),
@@ -237,71 +246,76 @@ export class ShippingComponent implements OnInit {
             "street" : this.street,
             "house" : this.house,
             "flat" : this.flat,
-            "orderLines": lines
+            "orderLines": this.lines
         }
         // console.log(this.cookie['productsOrder']);
         this.productService.postOrder(order).subscribe((response)=>{
             Observable.forkJoin(order.orderLines.map(line=>this.productService.postOrderLine(response, line.item, line.quantity, line.price)))
                 .subscribe(()=>{
                     if(response.status = 201) {
+                        this.savedOrder = response;
                         if(this.payOnCheckout){
-                            const wayforpay = new Wayforpay();
-                            const oneline = lines.length==1;
-                            const params = {
-                                merchantAccount : environment.merchantAccount,
-                                merchantDomainName : environment.merchantDomainName,
-                                authorizationType : "SimpleSignature",
-                                merchantSignature : this.getSignature(response, lines),
-                                orderReference : environment.prefix + response.id,
-                                orderDate : Date.parse(order.orderDate)/1000,
-                                amount : response.total,
-                                currency : "UAH",
-                                productName : oneline?lines[0].productName:lines.map(a=>a.productName),
-                                productPrice :oneline?lines[0].price      :lines.map(a=>a.price),
-                                productCount :oneline?lines[0].quantity   :lines.map(a=>a.quantity),
-                                clientFirstName : this.firstName,
-                                clientLastName : this.lastName,
-                                clientEmail : this.email,
-                                clientPhone: this.phone,
-                                language: "UA"
-                            };
-                            // console.log(params);
-                            wayforpay.run(params,
-                                function (response2) {
-                                    // on approved
-                                    //this.productService.postOrder(order).subscribe()
-                                    response.paid = true;
-                                    this.productService.updateOrder(response).subscribe((res)=>{
-                                        console.log(res);
-                                    });
-                                    // this.openSnackBar('Оплата успішна!', 'Done');
-                                    this.finalizeOrder(response);
-                                },
-                                function (response2) {
-                                    // on declined
-                                    response.hasTroubles = true
-                                    this.productService.updateOrder(response).subscribe((res)=>{
-                                        console.log(res);
-                                    });
-                                    this.openSnackBar('Помилка при оплаті!', 'Error');
-                                },
-                                function (response2) {
-                                    response.hasTroubles = true;
-                                    response.paid = true;
-                                    this.productService.updateOrder(response).subscribe((res)=>{
-                                        console.log(res);
-                                    });
-                                    this.openSnackBar('Очікування оплати!', 'Error');
-                                    // on pending or in processing
-                                }
-                            );
+                            this.pay(this.savedOrder);
                         }
                         else{
-                            this.finalizeOrder(response);
+                            this.finalizeOrder(this.savedOrder);
                         }
                     }
                  });
         });
 
+    }
+
+    pay(order:any){
+        const wayforpay = new Wayforpay();
+        const oneline = this.lines.length==1;
+        const params = {
+            merchantAccount : environment.merchantAccount,
+            merchantDomainName : environment.merchantDomainName,
+            authorizationType : "SimpleSignature",
+            merchantSignature : this.getSignature(order, this.lines),
+            orderReference : environment.prefix + order.id,
+            orderDate : Date.parse(order.orderDate)/1000,
+            amount : order.total,
+            currency : "UAH",
+            productName : oneline?this.lines[0].productName:this.lines.map(a=>a.productName),
+            productPrice :oneline?this.lines[0].price      :this.lines.map(a=>a.price),
+            productCount :oneline?this.lines[0].quantity   :this.lines.map(a=>a.quantity),
+            clientFirstName : this.firstName,
+            clientLastName : this.lastName,
+            clientEmail : this.email,
+            clientPhone: this.phone,
+            language: "UA"
+        };
+        // console.log(params);
+        wayforpay.run(params,
+            function (response2) {
+                // on approved
+                //this.productService.postOrder(order).subscribe()
+                order.paid = true;
+                this.productService.updateOrder(order).subscribe((res)=>{
+                    console.log(res);
+                });
+                // this.openSnackBar('Оплата успішна!', 'Done');
+                this.finalizeOrder(order);
+            },
+            function (response2) {
+                // on declined
+                order.hasTroubles = true
+                this.productService.updateOrder(order).subscribe((res)=>{
+                    console.log(res);
+                });
+                this.openSnackBar('Помилка при оплаті!', 'Error');
+            },
+            function (response2) {
+                order.hasTroubles = true;
+                order.paid = true;
+                this.productService.updateOrder(order).subscribe((res)=>{
+                    console.log(res);
+                });
+                this.openSnackBar('Очікування оплати!', 'Error');
+                // on pending or in processing
+            }
+        );
     }
 }
