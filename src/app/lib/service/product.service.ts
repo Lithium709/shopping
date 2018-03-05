@@ -450,7 +450,7 @@ export class productService {
         return this.http.get(this.authBase + '/api/return-orders?size=999');
     }
 
-    returnOrder(order :any, fullName: string, trackNumber:string, personalInfo:string){
+    returnOrder(order :any, fullName: string, trackNumber:string, personalInfo:string, reason:string){
         if(environment.production) {
             //this.http.put('/api/order-lines', order.orderLines ).subscribe(()=>{
             this.http.post(this.authBase + '/api/return-orders', {
@@ -459,6 +459,7 @@ export class productService {
                 "identity" : personalInfo,
                 "returnDate": new Date().toISOString().slice(0,10),
                 "paid": false,
+                "reason": reason,
                 "saleOrder": {"id" : order.id },
                 "state" : "NEW",
                 "total" : order.lines.map(l=>l.quantity*l.price).reduce((a,b)=>a+b)

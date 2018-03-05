@@ -15,6 +15,7 @@ export class ReturdetaleComponent implements OnInit {
   public  trackNumber: string;
   public fullName:string;
   public personalInfo:string;
+  public reason :string;
   constructor(private productService: productService, private router: Router, private loginService: LoginService) {
 
   }
@@ -31,7 +32,7 @@ export class ReturdetaleComponent implements OnInit {
   }
 
     saveReturn($event){
-      this.productService.returnOrder(this.returnOrder, this.fullName, this.trackNumber, this.personalInfo);
+      this.productService.returnOrder(this.returnOrder, this.fullName, this.trackNumber, this.personalInfo, this.reason);
       this.router.navigate(['/returnlist']);
     }
 
