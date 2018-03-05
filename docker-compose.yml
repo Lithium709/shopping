@@ -1,0 +1,30 @@
+version: '3.3'
+services:
+  es:
+    image: elasticsearch:2.4.6
+    restart: always
+    ports:
+    - "9200:9200"
+    - "9300:9300"
+  db:
+    image: mysql:5.7
+    restart: always
+    volumes:
+    - /mysql_init:/app
+    environment:
+      MYSQL_ROOT_PASSWORD: 59svPmBBhXLYsPb7
+      MYSQL_DATABASE: arber
+      MYSQL_USER: docker
+      MYSQL_PASSWORD: 12345678
+  backend:
+    depends_on:
+     - db
+     - es
+    image: armiax/backend:latest
+    ports:
+    - "8085:8085"
+    restart: always
+networks:
+  overlay:
+
+
