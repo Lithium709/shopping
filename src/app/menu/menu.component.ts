@@ -80,6 +80,7 @@ export class MenuComponent implements OnInit {
         this.menuState['shops']="inactive";
         this.menuState['service']="inactive";
         this.menuState['search']="inactive";
+        this.menuState['phone']="inactive";
     }
 
     onClickMainMenu(menu:string){
