@@ -6,13 +6,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Dependencies
 import { MatProgressSpinnerModule, MatIconModule, MatButtonModule, MatMenuModule } from '@angular/material';
-import { MatInputModule } from '@angular/material';
+
 import 'hammerjs';
 import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
 
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSelectModule} from "@angular/material";
 import { MatExpansionModule } from "@angular/material";
+
+import {MatListModule} from '@angular/material/list';
+import {MatInputModule} from "@angular/material";
 
 
 // Component
@@ -101,6 +104,8 @@ import {SafeHtmlPipe} from "./lib/pipe/safe-html";
         MblogModule,
         MatDialogModule,
         MatSelectModule,
+        MatListModule,
+        MatInputModule,
         MatProgressSpinnerModule,
         MatIconModule,
         MatButtonModule,

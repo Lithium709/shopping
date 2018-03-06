@@ -3,6 +3,25 @@ a:focus, a:hover{
   color: white;
 }
 
+i.fa.fa-phone.fa-lg.phoneicon{
+  font-size: 27px;
+  margin-top: 9px;
+  margin-right: 12px;
+  height: 30px;
+}
+
+.time{
+  height: 20px;
+}
+.callback{
+  background-color: black;
+  color: white;
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+
+
 .toggleHeight{
   display: block;
   opacity: 0;
@@ -68,7 +87,7 @@ a:focus, a:hover{
 
 i.fa.auth{
   border-radius: 50%;
-  border: 1px solid #c19f63;
+/*  border: 1px solid #c19f63; */
   width: 55px;
   color: #c19f63;
 }
