@@ -21,3 +21,11 @@ a.banservices::after{
   height: 0px;
   color: transparent;
 }
+
+@media only screen and (max-width: 780px) {
+
+  p.blockdisc{
+    margin-bottom: 1px;
+  }
+
+}

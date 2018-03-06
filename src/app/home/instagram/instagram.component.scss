@@ -51,3 +51,11 @@
   font-size: 16px;
   padding: 16px 32px;
 }
+@media only screen and (max-width: 780px) {
+  .lightwidget-widget{
+    height: 60px;
+  }
+  .title{
+    margin-left: 0px;
+  }
+}

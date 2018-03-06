@@ -33,3 +33,15 @@ a.menuCityLink:hover{
   border: 0px solid whitesmoke;
   height: 40px;
 }
+
+@media only screen and (max-width: 780px) {
+
+  .topalspan{
+    font-size: 15px;
+    margin-top: -10px;
+    text-transform: uppercase;
+  }
+  .title{
+    display: none;
+  }
+}

@@ -839,7 +839,8 @@ a.linkHtmlBan:hover::after{
 		width: 98%;
 		float: left;
 		margin: 0px;
-		padding-left: 1px;
+		padding-left: 10px;
+		background-color: white;
 }
 
 .wsmenu-list > li:hover>a {
@@ -943,14 +944,14 @@ img.serchIcoM{
 }
 
 .megacollink li a{
-	font-size: 13px;
+	font-size: 16px;
 	color: #183051;
-	padding-left: 10px;
+	/*padding-left: 10px;*/
 }
 
 .blockdisc{
-	margin-top: -25px;
-	padding-left: 10px;
+	/*margin-top: -25px;
+	padding-left: 10px;*/
 	color: black;
 }
 
@@ -1156,6 +1157,7 @@ img.serchIcoM{
 .wsmenu .wsmenu-list {
 	height: 100%;
 	overflow-y: auto;
+	overflow-x: hidden;
 	display: block !important;
 }
 .wsmenu .wsmenu-list > li {
@@ -1274,8 +1276,8 @@ img.serchIcoM{
 }
 .megamenu .title {
 	color: #666666;
-	font-size: 12px !important;
-	font-weight: bold;
+	font-size: 16px !important;
+	/*font-weight: bold;*/
 	padding: 10px 8px 10px 0px;
 }
 .halfdiv .title {
