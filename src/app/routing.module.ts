@@ -70,6 +70,7 @@ const routes: Routes = [
       ]  
     },
     */
+    { path: 'token/:token',  component: CookieSaverComponent },
     { path: 'order-list', component: OrderListComponent},
     { path: 'returnorder', component: ReturdetaleComponent},
     { path: 'returnlist', component: ReturnlistComponent},
