@@ -223,30 +223,30 @@ export class DetailProductComponent implements OnInit {
         this.productImage = gallery.images;
     }
 
+    next(i){
+        return Math.min(this.product.photos.length - 1, i + 1);
+    }
+
+    prev(i){
+        return Math.max(i - 1, 0);
+    }
+
     swipe(e,i){
         console.log('swipe', e);
         if (isPlatformBrowser(this.platformId)) {
             switch (e) {
                 case 'swipeleft':
-                    this.activeImageIndex = Math.min(this.product.photos.length - 1, i + 1);
-                    break;
+                    this.activeImageIndex = this.next(i);break;
                 case 'swiperight':
-                    this.activeImageIndex = Math.max(i - 1, 0);
-                    break;
-                case 'swipeup' :
-                    window.scrollTo(0, window.pageXOffset + 400);
-                    break;
-                case 'swipedown' :
-                    window.scrollTo(0, window.pageXOffset - 400);
-                    break;
-            }
+                    this.activeImageIndex = this.prev(i);break;
+             }
         }
     }
 
     arrows(e,i){
         switch(e){
-            case 'prev': this.activeImageIndex = Math.min(this.product.photos.length - 1, i + 1);break;
-            case 'next': this.activeImageIndex = Math.max(i - 1, 0);break;
+            case 'prev': this.activeImageIndex = this.next(i);break;
+            case 'next': this.activeImageIndex = this.prev(i);break;
         }
     }
 
