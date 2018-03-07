@@ -82,6 +82,7 @@
                                 <input [value]="searchText" type="text" autofocus (keyup)="search($event)" (input)="searchText = $event.target.value" class="form-control" placeholder="Що ви шукаєте...">
                                 <span class="input-group-btn">
                                    <!-- <button  (click)="SearchButtonClick()" class="btn btn-default" type="button">ВПЕРЕД!</button> -->
+                                 <a class="closeSearch" (click)="onClickMainMenu('search')"><img src="../../assets/images/brand/close_grey.png" /></a>
                                 </span>
                             </div>
                         </div>

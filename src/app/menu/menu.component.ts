@@ -67,6 +67,10 @@ export class MenuComponent implements OnInit {
         alert("Ваш запит відправлено");
     }
 
+    onClickClose(){
+
+    }
+
     ngOnInit() {
         this.imageUrl = this.principal.getImageUrl();
         this.inactivateAll();
