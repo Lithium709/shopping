@@ -71,7 +71,9 @@ i.desc.isAsc{
  /* background-image: url("/assets/images/brand/isAsc.png"); */
 }
 
-
+.navbar-toggle{
+  border-radius: 0px;
+}
 
 
 .mobFiltBtn{
@@ -145,7 +147,7 @@ i.desc.isAsc{
 }
 
 .colorBlocks{
-  overflow: hidden;
+  /*overflow: hidden;*/
   display: -webkit-box;
 }
 
