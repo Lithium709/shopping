@@ -57,6 +57,7 @@ export class DetailProductComponent implements OnInit {
             this.productName = params["detail"];
             this.productService.getSlugProduct(this.productName).subscribe(product => {
                 this.product = product;
+                this.product.photos = this.product.photos.sort((a,b)=>a.id-b.id);
                 console.log(product);
                 this.selectedItems = [];
                 this.sizes = Array.from(new Set(this.product.items.map(i=>i.size))).sort();

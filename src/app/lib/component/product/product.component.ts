@@ -111,6 +111,9 @@ export class ProductComponent implements OnInit {
         */
         this.mainService.search(this.filter, this.currentPage).subscribe(data => {
             this.products = data;
+            for(let i=0;i<this.products.length;i++){
+                this.products[i].photos = this.products[i].photos.sort((a,b)=>a.id-b.id);
+            }
             this.totalItems = this.mainService.total;
             console.log("TOTAL = " + this.mainService.total);
             this.limitProduct(data);
