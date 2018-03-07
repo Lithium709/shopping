@@ -95,6 +95,11 @@ p{
     }
 }
 
+.ng-star-inserted{
+    touch-action: auto;
+}
+
+
 b,
 strong{
     font-weight: 600 !important;
