@@ -58,10 +58,17 @@ export class Home1Component implements OnInit, AfterViewInit {
     ngAfterViewInit() {
         setTimeout(() => {
             this.loadCarouselComponent();
+        }, 300);
+        setTimeout(() => {
             this.loadAboutComponent();
+        }, 600);
+        setTimeout(() => {
             this.loadSeotextComponent();
+        }, 900);
+        setTimeout(() => {
             this.loadInstagramComponent();
-        }, 2000);
+        }, 1200);
+
     }
 
     loadAboutComponent() {
