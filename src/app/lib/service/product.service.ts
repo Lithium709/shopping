@@ -725,7 +725,7 @@ export class productService {
         for (let field in filter) {
             switch(field){
                 case 'menuCategory' : if(filter[field]) mustFilter.push({
-                    "match": {
+                    "match_phrase_prefix": {
                         "branches.menuCategory.name": filter[field]
                     }
                 });break;
