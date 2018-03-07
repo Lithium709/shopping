@@ -46,6 +46,7 @@ export class MenuComponent implements OnInit {
     public productCount: number;
     public searchText: string ="";
     private  dialogResult = "";
+
     public imageUrl: String;
     constructor(private productService: productService,
                 private cookie: CookieService,
@@ -62,8 +63,9 @@ export class MenuComponent implements OnInit {
 
     }
 
-
-
+    closePhone(){
+        alert("Ваш запит відправлено");
+    }
 
     ngOnInit() {
         this.imageUrl = this.principal.getImageUrl();
