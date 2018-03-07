@@ -37,9 +37,6 @@
                             <div *ngFor="let image of product.photos; let i = index"
                                  (swipeleft)="swipe($event.type, i)"
                                  (swiperight)="swipe($event.type,i)"
-                                 (swipedown)="swipe($event.type,i)"
-                                 (swipeup)="swipe($event.type,i)"
-
                                  (tap)="onTapZoom(i)"
                                     class="item"
                                     [class.hidden]="i!==activeImageIndex"

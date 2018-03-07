@@ -66,7 +66,13 @@ import {InstagramComponent} from "./home/instagram/instagram.component";
 import {CarouselComponent} from "./home/carousel/carousel.component";
 // import { SubscribeComponent } from './subscribe/subscribe.component';
 import {SafeHtmlPipe} from "./lib/pipe/safe-html";
-
+import { HAMMER_GESTURE_CONFIG, HammerGestureConfig } from '@angular/platform-browser';
+export class MyHammerConfig extends HammerGestureConfig {
+    overrides = <any> {
+        'pinch': { enable: false },
+        'rotate': { enable: false }
+    }
+}
 
 @NgModule({
     declarations: [
@@ -139,7 +145,11 @@ import {SafeHtmlPipe} from "./lib/pipe/safe-html";
         CSRFService,
         SocialService,
         Register,
-        { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+        { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
+        {
+            provide: HAMMER_GESTURE_CONFIG,
+            useClass: MyHammerConfig
+        }
     ],
     exports: [
         // SubscribeComponent
