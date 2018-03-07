@@ -36,6 +36,7 @@ import {StoreDetailComponent} from "./mstores/store-detail/store-detail.componen
 
 import {NavblogComponent} from "./mblog/navblog/navblog.component";
 import { BlogComponent } from "./blog/blog.component";
+import {CookieSaverComponent} from "./cookie-saver/cookie-saver.component";
 // ELements
 
 
