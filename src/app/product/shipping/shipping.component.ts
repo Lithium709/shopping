@@ -65,7 +65,7 @@ export class ShippingComponent implements OnInit {
     public region :any;
     public deliveryChoice:string='1';
 
-    public payOnCheckout = true;
+    public payOnCheckout = false;
     public lines: any[];
     public savedOrder:any;
 
