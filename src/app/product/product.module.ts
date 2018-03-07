@@ -54,7 +54,6 @@ import { WishlistComponent } from './wishlist/wishlist.component';
 import { CookieService } from '../lib/service/cookie.service';
 import { TopfilterComponent } from './topfilter/topfilter.component';
 import { StepslistComponent } from './stepslist/stepslist.component';
-import { ProdslideComponent } from './prodslide/prodslide.component';
 import {ReactiveFormsModule} from "@angular/forms";
 
 import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
@@ -101,8 +100,7 @@ import { ProdgalleryComponent } from './prodgallery/prodgallery.component';
         WishlistComponent,
         TopfilterComponent,
         StepslistComponent,
-        ProdgalleryComponent,
-        ProdslideComponent
+        ProdgalleryComponent
 
     ],
     providers: [CookieService, {

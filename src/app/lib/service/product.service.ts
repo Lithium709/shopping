@@ -223,16 +223,7 @@ export class productService {
         }
 
     }
-
-
-    getMainImgs():Observable<any[]>{
-        if(environment.production){
-            return this.http.post(this.searchBase + '/product/_search', this.queryalldocs)
-                .map((res:any)=>res.hits.hits.map(o=>o._source));
-        }
-
-    }
-
+    
     getBlogPostByCategory(categoryId):Observable<BlogPost[]>{
         if(environment.production){
             console.log(categoryId);
