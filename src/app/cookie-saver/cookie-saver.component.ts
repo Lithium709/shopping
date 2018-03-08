@@ -26,8 +26,8 @@ export class CookieSaverComponent implements OnInit {
                     this.principal.identity(true).then((account)=>{
                         console.log("Successfully logged in with token");
                         console.log(account);
+                        this.router.navigate(['order-list']);
                     });
-                    this.router.navigate(['order-list']);
                 },
                 ()=>{
                     console.log("Rejected");
