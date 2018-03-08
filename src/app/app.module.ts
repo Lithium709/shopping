@@ -67,6 +67,7 @@ import {CarouselComponent} from "./home/carousel/carousel.component";
 // import { SubscribeComponent } from './subscribe/subscribe.component';
 import {SafeHtmlPipe} from "./lib/pipe/safe-html";
 import { HAMMER_GESTURE_CONFIG, HammerGestureConfig } from '@angular/platform-browser';
+import {CookieSaverComponent} from "./cookie-saver/cookie-saver.component";
 export class MyHammerConfig extends HammerGestureConfig {
     overrides = <any> {
         'pinch': { enable: false },
@@ -87,9 +88,9 @@ export class MyHammerConfig extends HammerGestureConfig {
     /*
         FrontSliderComponent,
 
-        CookieSaverComponent,
         OurServicesComponent,
         SubscribeComponent,*/
+        CookieSaverComponent,
         LoginDialogComponent,
         BlogComponent,
         SafeHtmlPipe
