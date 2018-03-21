@@ -1155,10 +1155,12 @@ img.serchIcoM{
 	position: relative;
 }
 .wsmenu .wsmenu-list {
-	height: 100%;
-	overflow-y: auto;
-	overflow-x: hidden;
 	display: block !important;
+	height: 100%;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	-webkit-overflow-scrolling: touch;
+
 }
 .wsmenu .wsmenu-list > li {
 	width: 100%;

@@ -126,7 +126,7 @@
 
                     <!--PRISE START-->
                     <div class="price">
-                        <span *ngIf="product.oldPrice" class="value1">{{product.oldPrice | number}} грн</span>
+                        <span *ngIf="product.oldPrice != product.price" class="value1">{{product.oldPrice | number}} грн</span>
                         <span class="value2">{{product.price | number}} грн</span>
                     </div>
 

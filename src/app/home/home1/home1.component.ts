@@ -71,6 +71,10 @@ export class Home1Component implements OnInit, AfterViewInit {
 
     }
 
+    subskribeNews(){
+        alert("Підписка вдала");
+    }
+
     loadAboutComponent() {
         let componentFactory = this.componentFactoryResolver.resolveComponentFactory(AboutComponent);
         let viewContainerRef = this.aboutHost.viewContainerRef;
